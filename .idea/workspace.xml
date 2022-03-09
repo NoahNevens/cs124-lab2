@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c1a342f-6557-42a2-baac-8c7c45430db0" name="Changes" comment="adding to show only uncomplete">
+    <list default="true" id="4c1a342f-6557-42a2-baac-8c7c45430db0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BottomButtons.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/BottomButtons.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +62,7 @@
       <recent name="$PROJECT_DIR$/public" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.deploy">
+  <component name="RunManager" selected="npm.npm start">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
       <method v="2" />
     </configuration>
@@ -78,11 +79,31 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="install gh-pages" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+    <configuration name="firebase-init" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
-        <script value="install gh-pages" />
+        <script value="firebase-init" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="firebase-login" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="firebase-login" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="install-dependencies" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="install-dependencies" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -100,9 +121,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.firebase-init" />
+        <item itemvalue="npm.firebase-login" />
+        <item itemvalue="npm.install-dependencies" />
         <item itemvalue="npm.deploy" />
         <item itemvalue="Node.js.App.js" />
-        <item itemvalue="npm.install gh-pages" />
       </list>
     </recent_temporary>
   </component>

@@ -1,8 +1,6 @@
 import "./BottomButtons.css";
-import {useState} from "react";
 
 function BottomButtons(props) {
-    // const [showOnlyUncomplete, setShowOnlyUncomplete] = useState(false);
 
     return <div className="buttons">
         <button type="radio" className="bottom_button" id="show_uncomplete"
