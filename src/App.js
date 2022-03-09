@@ -8,11 +8,11 @@ import {useState} from "react";
 
 function App(props) {
     const [data, setData] = useState(props.initialData);
-    const [showOnlyUncomplete, setShowOnlyUncomplete] = useState(false);
+    const [hideCompleted, setHideCompleted] = useState(false);
     const [nextId, setNextId] = useState(data.length + 1);
     const [mouseOver, setMouseOver] = useState(false);
 
-    const filteredData = data.filter(t => !t.completed);
+    const uncompletedData = data.filter(t => !t.completed);
 
     function handleChangeField(taskId, field, value) {
         setData(data.map(
@@ -38,18 +38,11 @@ function App(props) {
                           value: taskValue,
                           completed: false };
         setNextId(nextId + 1);
-        setData([].concat(data, [newTask]));
+        setData([...data, newTask]);
     }
 
-    const regBgColor = "white";
-    const newBgColor = "radial-gradient(rgb(0, 114, 185), rgb(0, 60, 255))";
-    const regTxtColor = "rgb(15, 116, 231)";
-    const newTxtColor = "white";
-
     function handleToggleCompletedItems(event) {
-        setShowOnlyUncomplete(!showOnlyUncomplete);
-        event.target.style.color = showOnlyUncomplete ? regTxtColor : newTxtColor;
-        event.target.style.background = showOnlyUncomplete ? regBgColor : newBgColor;
+        setHideCompleted(!hideCompleted);
     }
 
     function handleMouseOver(event) {
@@ -64,7 +57,7 @@ function App(props) {
     return (
       <div className="App">
         <Header/>
-          <TaskList data={showOnlyUncomplete ? filteredData : data}
+          <TaskList data={hideCompleted ? uncompletedData : data}
                     onTaskChangeField={handleChangeField}
                     onAddTask={handleAddTask}
                     onItemDeleted={handleItemDeleted}/>
