@@ -10,6 +10,7 @@ function App(props) {
     const [data, setData] = useState(props.initialData);
     const [showOnlyUncomplete, setShowOnlyUncomplete] = useState(false);
     const [nextId, setNextId] = useState(data.length + 1);
+    const [mouseOver, setMouseOver] = useState(false);
 
     const filteredData = data.filter(t => !t.completed);
 
@@ -51,14 +52,12 @@ function App(props) {
         event.target.style.background = showOnlyUncomplete ? regBgColor : newBgColor;
     }
 
-    function mouseOver(event) {
-        event.target.style.background = showOnlyUncomplete ? regBgColor : newBgColor;
-        event.target.style.color = showOnlyUncomplete ? regTxtColor : newTxtColor;
+    function handleMouseOver(event) {
+        setMouseOver(!mouseOver);
     }
 
-    function mouseOut(event) {
-        event.target.style.background = showOnlyUncomplete ? newBgColor : regBgColor;
-        event.target.style.color = showOnlyUncomplete ? newTxtColor : regTxtColor;
+    function handleMouseOut(event) {
+        setMouseOver(!mouseOver);
     }
 
 
@@ -71,9 +70,10 @@ function App(props) {
                     onItemDeleted={handleItemDeleted}/>
           <BottomButtons onToggleCompletedItems={(e) => handleToggleCompletedItems(e)}
                          onClearCompletedItems={() => handleClearCompleted()}
-                         onMouseOver={(e) => mouseOver(e)}
-                         onMouseOut={(e) => mouseOut(e)}
-                         isShowOnlyUncomplete={showOnlyUncomplete}/>
+                         onMouseOver={(e) => handleMouseOver(e)}
+                         onMouseOut={(e) => handleMouseOut(e)}
+                         isHideCompleted={hideCompleted}
+                         isMouseOver={mouseOver}/>
       </div>
     );
 }
