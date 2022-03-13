@@ -18,18 +18,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const initialData = [
-    {
-        id: "task1",
-        value: "Buy new John Grisham book",
-        completed: false
-    }
-];
-
-
 ReactDOM.render(
   <React.StrictMode>
-      <App initialData={initialData}/>
+      <App db={db}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

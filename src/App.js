@@ -3,42 +3,50 @@ import './App.css';
 import Header from './Header.js';
 import TaskList from './TaskList.js';
 import BottomButtons from './BottomButtons.js';
+import {query, collection, doc, setDoc, deleteDoc} from "firebase/firestore";
+import {useCollectionData} from "react-firebase-hooks/firestore";
 import {useState} from "react";
 
 
 function App(props) {
-    const [data, setData] = useState(props.initialData);
+
+    const collectionName = "task-list";
+    const q = query(collection(props.db, collectionName));
+    const [people, loading, error] = useCollectionData(q);
+
     const [hideCompleted, setHideCompleted] = useState(false);
-    const [nextId, setNextId] = useState(data.length + 1);
+    const [nextId, setNextId] = useState(people.length + 1);
     const [mouseOver, setMouseOver] = useState(false);
 
-    const uncompletedData = data.filter(t => !t.completed);
+    const uncompletedData = people.filter(t => !t.completed);
+    // or should it be like query(collection(props.db, collectionName), where("completed", "==", "true") ?
 
     function handleChangeField(taskId, field, value) {
-        setData(data.map(
-            t => t.id === taskId ? {...t, [field]:value} : t
-        ))
+        setDoc(doc(props.db, collectionName, taskId), {[field]:value}, {merge:true});
     }
 
-    function handleItemDeleted(taskID) {
-        setData(data.filter((task) => task.id !== taskID));
+    function handleItemDeleted(taskId) {
+        deleteDoc(doc(props.db, collectionName, taskId));
     }
 
     function handleClearCompleted() {
-        setData(data.filter(task => !task.completed))
+        setData(people.filter(task => !task.completed))
     }
 
     function handleAddTask(taskValue) {
-        for (const task of data) {
+        // not allowed to have more than 1 blank task at a time
+        for (const task of people) {
             if (task.value === "") {
                 return;
             }
         }
-        const newTask = { id: "task"+String(nextId),
-                          value: taskValue,
-                          completed: false };
+
+        const newId = "task"+String(nextId);
+        setDoc(doc(props.db, collectionName, newId),
+            {id: newId,
+             value: taskValue,
+             completed: false });
         setNextId(nextId + 1);
-        setData([...data, newTask]);
     }
 
     function handleToggleCompletedItems(event) {
@@ -53,11 +61,10 @@ function App(props) {
         setMouseOver(!mouseOver);
     }
 
-
     return (
       <div className="App">
         <Header/>
-          <TaskList data={hideCompleted ? uncompletedData : data}
+          <TaskList data={hideCompleted ? uncompletedData : people}
                     onTaskChangeField={handleChangeField}
                     onAddTask={handleAddTask}
                     onItemDeleted={handleItemDeleted}/>
