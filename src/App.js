@@ -3,7 +3,7 @@ import './App.css';
 import Header from './Header.js';
 import TaskList from './TaskList.js';
 import BottomButtons from './BottomButtons.js';
-import {query, collection, doc, setDoc, deleteDoc} from "firebase/firestore";
+import {query, collection, doc, setDoc, deleteDoc, serverTimestamp, where} from "firebase/firestore";
 import {useCollectionData} from "react-firebase-hooks/firestore";
 import {useState} from "react";
 
@@ -18,8 +18,9 @@ function App(props) {
     const [nextId, setNextId] = useState(people.length + 1);
     const [mouseOver, setMouseOver] = useState(false);
 
-    const uncompletedData = people.filter(t => !t.completed);
-    // or should it be like query(collection(props.db, collectionName), where("completed", "==", "true") ?
+    // is this right???
+    // const uncompletedData = people.filter(t => !t.completed);
+    const uncompletedData = query(collection(props.db, collectionName), where("completed", "==", "false"));
 
     function handleChangeField(taskId, field, value) {
         setDoc(doc(props.db, collectionName, taskId), {[field]:value}, {merge:true});
@@ -30,7 +31,12 @@ function App(props) {
     }
 
     function handleClearCompleted() {
-        setData(people.filter(task => !task.completed))
+        // idk if this is right...
+        const toDelete = query(collection(props.db, collectionName), where("completed", "==", "true"));
+        for (const taskDoc of toDelete) {
+            deleteDoc(taskDoc);
+        }
+        // setData(people.filter(task => !task.completed))
     }
 
     function handleAddTask(taskValue) {
@@ -45,7 +51,8 @@ function App(props) {
         setDoc(doc(props.db, collectionName, newId),
             {id: newId,
              value: taskValue,
-             completed: false });
+             completed: false,
+            created: serverTimestamp() });
         setNextId(nextId + 1);
     }
 
@@ -61,21 +68,26 @@ function App(props) {
         setMouseOver(!mouseOver);
     }
 
-    return (
-      <div className="App">
-        <Header/>
-          <TaskList data={hideCompleted ? uncompletedData : people}
-                    onTaskChangeField={handleChangeField}
-                    onAddTask={handleAddTask}
-                    onItemDeleted={handleItemDeleted}/>
-          <BottomButtons onToggleCompletedItems={(e) => handleToggleCompletedItems(e)}
-                         onClearCompletedItems={() => handleClearCompleted()}
-                         onMouseOver={(e) => handleMouseOver(e)}
-                         onMouseOut={(e) => handleMouseOut(e)}
-                         isHideCompleted={hideCompleted}
-                         isMouseOver={mouseOver}/>
-      </div>
-    );
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+    else {
+        return (
+            <div className="App">
+                <Header/>
+                <TaskList data={hideCompleted ? uncompletedData : people}
+                          onTaskChangeField={handleChangeField}
+                          onAddTask={handleAddTask}
+                          onItemDeleted={handleItemDeleted}/>
+                <BottomButtons onToggleCompletedItems={(e) => handleToggleCompletedItems(e)}
+                               onClearCompletedItems={() => handleClearCompleted()}
+                               onMouseOver={(e) => handleMouseOver(e)}
+                               onMouseOut={(e) => handleMouseOut(e)}
+                               isHideCompleted={hideCompleted}
+                               isMouseOver={mouseOver}/>
+            </div>
+        );
+    }
 }
 
 export default App;
