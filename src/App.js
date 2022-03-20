@@ -18,6 +18,9 @@ function App(props) {
     const [nextId, setNextId] = useState(people.length + 1);
     const [mouseOver, setMouseOver] = useState(false);
 
+    if(error) {
+        console.log("error!");
+    }
     // is this right???
     // const uncompletedData = people.filter(t => !t.completed);
     const uncompletedData = query(collection(props.db, collectionName), where("completed", "==", "false"));
@@ -56,15 +59,15 @@ function App(props) {
         setNextId(nextId + 1);
     }
 
-    function handleToggleCompletedItems(event) {
+    function handleToggleCompletedItems() {
         setHideCompleted(!hideCompleted);
     }
 
-    function handleMouseOver(event) {
+    function handleMouseOver() {
         setMouseOver(!mouseOver);
     }
 
-    function handleMouseOut(event) {
+    function handleMouseOut() {
         setMouseOver(!mouseOver);
     }
 
@@ -79,10 +82,10 @@ function App(props) {
                           onTaskChangeField={handleChangeField}
                           onAddTask={handleAddTask}
                           onItemDeleted={handleItemDeleted}/>
-                <BottomButtons onToggleCompletedItems={(e) => handleToggleCompletedItems(e)}
+                <BottomButtons onToggleCompletedItems={() => handleToggleCompletedItems()}
                                onClearCompletedItems={() => handleClearCompleted()}
-                               onMouseOver={(e) => handleMouseOver(e)}
-                               onMouseOut={(e) => handleMouseOut(e)}
+                               onMouseOver={() => handleMouseOver()}
+                               onMouseOut={() => handleMouseOut()}
                                isHideCompleted={hideCompleted}
                                isMouseOver={mouseOver}/>
             </div>

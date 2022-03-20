@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c1a342f-6557-42a2-baac-8c7c45430db0" name="Changes" comment="">
+    <list default="true" id="4c1a342f-6557-42a2-baac-8c7c45430db0" name="Changes" comment="trying to make firestore thing compile pt 2">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +141,7 @@
       <workItem from="1646262123605" duration="3447000" />
       <workItem from="1646280195331" duration="1387000" />
       <workItem from="1646866669137" duration="2318000" />
-      <workItem from="1647806065261" duration="215000" />
+      <workItem from="1647806065261" duration="743000" />
     </task>
     <task id="LOCAL-00001" summary="we got started!">
       <created>1645224283572</created>
@@ -225,7 +227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646867760379</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="trying to make firestore thing compile">
+      <created>1647806313506</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1647806313507</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,6 +264,8 @@
     <MESSAGE value="updating readme" />
     <MESSAGE value="adding to show only uncomplete" />
     <MESSAGE value="THERE IS STILL AN ERROR" />
-    <option name="LAST_COMMIT_MESSAGE" value="THERE IS STILL AN ERROR" />
+    <MESSAGE value="trying to make firestore thing compile" />
+    <MESSAGE value="trying to make firestore thing compile pt 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="trying to make firestore thing compile pt 2" />
   </component>
 </project>
