@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c1a342f-6557-42a2-baac-8c7c45430db0" name="Changes" comment="trying to make firestore thing compile pt 2">
+    <list default="true" id="4c1a342f-6557-42a2-baac-8c7c45430db0" name="Changes" comment="trying to make firestore thing compile pt 3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CheckButton.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/CheckButton.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +64,14 @@
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
       <method v="2" />
     </configuration>
-    <configuration name="App.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/App.js" working-dir="$PROJECT_DIR$/src">
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
       <method v="2" />
     </configuration>
     <configuration name="deploy" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
@@ -119,11 +126,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.build" />
         <item itemvalue="npm.firebase-init" />
         <item itemvalue="npm.firebase-login" />
         <item itemvalue="npm.install-dependencies" />
         <item itemvalue="npm.deploy" />
-        <item itemvalue="Node.js.App.js" />
       </list>
     </recent_temporary>
   </component>
@@ -141,7 +148,7 @@
       <workItem from="1646262123605" duration="3447000" />
       <workItem from="1646280195331" duration="1387000" />
       <workItem from="1646866669137" duration="2318000" />
-      <workItem from="1647806065261" duration="743000" />
+      <workItem from="1647806065261" duration="2743000" />
     </task>
     <task id="LOCAL-00001" summary="we got started!">
       <created>1645224283572</created>
@@ -234,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647806313507</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="trying to make firestore thing compile pt 2">
+      <created>1647806840811</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1647806840811</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,6 +280,7 @@
     <MESSAGE value="THERE IS STILL AN ERROR" />
     <MESSAGE value="trying to make firestore thing compile" />
     <MESSAGE value="trying to make firestore thing compile pt 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="trying to make firestore thing compile pt 2" />
+    <MESSAGE value="trying to make firestore thing compile pt 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="trying to make firestore thing compile pt 3" />
   </component>
 </project>
