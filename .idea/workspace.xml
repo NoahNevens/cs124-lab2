@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c1a342f-6557-42a2-baac-8c7c45430db0" name="Changes" comment="trying to make firestore thing compile pt 3">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CheckButton.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/CheckButton.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -148,7 +146,7 @@
       <workItem from="1646262123605" duration="3447000" />
       <workItem from="1646280195331" duration="1387000" />
       <workItem from="1646866669137" duration="2318000" />
-      <workItem from="1647806065261" duration="2743000" />
+      <workItem from="1647806065261" duration="2824000" />
     </task>
     <task id="LOCAL-00001" summary="we got started!">
       <created>1645224283572</created>
@@ -248,7 +246,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647806840811</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="trying to make firestore thing compile pt 3">
+      <created>1647808974012</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1647808974014</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
