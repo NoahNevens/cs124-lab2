@@ -6,6 +6,7 @@ import BottomButtons from './BottomButtons.js';
 import {query, collection, doc, setDoc, deleteDoc, serverTimestamp, where} from "firebase/firestore";
 import {useCollectionData} from "react-firebase-hooks/firestore";
 import {useState} from "react";
+import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 
 
 function App(props) {
@@ -15,12 +16,12 @@ function App(props) {
     const [people, loading, error] = useCollectionData(q);
 
     const [hideCompleted, setHideCompleted] = useState(false);
-    const [nextId, setNextId] = useState(people.length + 1);
     const [mouseOver, setMouseOver] = useState(false);
 
     if(error) {
         console.log("error!");
     }
+
     // is this right???
     // const uncompletedData = people.filter(t => !t.completed);
     const uncompletedData = query(collection(props.db, collectionName), where("completed", "==", "false"));
@@ -50,13 +51,12 @@ function App(props) {
             }
         }
 
-        const newId = "task"+String(nextId);
+        const newId = generateUniqueID();
         setDoc(doc(props.db, collectionName, newId),
             {id: newId,
              value: taskValue,
              completed: false,
             created: serverTimestamp() });
-        setNextId(nextId + 1);
     }
 
     function handleToggleCompletedItems() {
