@@ -16,7 +16,7 @@ function App(props) {
 
     const [hideCompleted, setHideCompleted] = useState(false);
     const [mouseOver, setMouseOver] = useState(false);
-    const [sortBy, setSortBy] = useState("");
+    // const [sortBy, setSortBy] = useState("");
 
     if(error) {
         console.log("error!");
@@ -69,7 +69,7 @@ function App(props) {
     }
 
     function handleSortBy(sortType) {
-        setSortBy(sortType);
+        // setSortBy(sortType);
     }
 
     if (loading) {
