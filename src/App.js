@@ -10,7 +10,6 @@ import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 
 
 function App(props) {
-
     const collectionName = "task-list";
     const q = query(collection(props.db, collectionName));
     const [people, loading, error] = useCollectionData(q);
