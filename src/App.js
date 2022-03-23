@@ -22,8 +22,6 @@ function App(props) {
         console.log("error!");
     }
 
-    // is this right???
-    // const uncompletedData = people.filter(t => !t.completed);
     const uncompletedData = query(collection(props.db, collectionName), where("completed", "==", "false"));
 
     function handleChangeField(taskId, field, value) {
@@ -35,12 +33,10 @@ function App(props) {
     }
 
     function handleClearCompleted() {
-        // idk if this is right...
         const toDelete = query(collection(props.db, collectionName), where("completed", "==", "true"));
         for (const taskDoc of toDelete) {
             deleteDoc(taskDoc);
         }
-        // setData(people.filter(task => !task.completed))
     }
 
     function handleAddTask(taskValue) {
@@ -54,9 +50,10 @@ function App(props) {
         const newId = generateUniqueID();
         setDoc(doc(props.db, collectionName, newId),
             {id: newId,
-             value: taskValue,
-             completed: false,
-            created: serverTimestamp() });
+                value: taskValue,
+                completed: false,
+                priority: "high",
+                created: serverTimestamp() });
     }
 
     function handleToggleCompletedItems() {
@@ -74,23 +71,19 @@ function App(props) {
     if (loading) {
         return <div>Loading...</div>;
     }
-    else {
-        return (
-            <div className="App">
-                <Header/>
-                <TaskList data={hideCompleted ? uncompletedData : people}
-                          onTaskChangeField={handleChangeField}
-                          onAddTask={handleAddTask}
-                          onItemDeleted={handleItemDeleted}/>
-                <BottomButtons onToggleCompletedItems={() => handleToggleCompletedItems()}
-                               onClearCompletedItems={() => handleClearCompleted()}
-                               onMouseOver={() => handleMouseOver()}
-                               onMouseOut={() => handleMouseOut()}
-                               isHideCompleted={hideCompleted}
-                               isMouseOver={mouseOver}/>
-            </div>
-        );
-    }
+    return <div className="App">
+            <Header/>
+            <TaskList data={hideCompleted ? uncompletedData : people}
+                      onTaskChangeField={handleChangeField}
+                      onAddTask={handleAddTask}
+                      onItemDeleted={handleItemDeleted}/>
+            <BottomButtons onToggleCompletedItems={() => handleToggleCompletedItems()}
+                           onClearCompletedItems={() => handleClearCompleted()}
+                           onMouseOver={() => handleMouseOver()}
+                           onMouseOut={() => handleMouseOut()}
+                           isHideCompleted={hideCompleted}
+                           isMouseOver={mouseOver}/>
+        </div>;
 }
 
 export default App;
