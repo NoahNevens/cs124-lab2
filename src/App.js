@@ -3,11 +3,11 @@ import './App.css';
 import Header from './Header.js';
 import TaskList from './TaskList.js';
 import BottomButtons from './BottomButtons.js';
+import SortButton from './SortButton.js';
 import {query, collection, doc, setDoc, deleteDoc, serverTimestamp, where} from "firebase/firestore";
 import {useCollectionData} from "react-firebase-hooks/firestore";
 import {useState} from "react";
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
-
 
 function App(props) {
     const collectionName = "task-list";
@@ -16,6 +16,7 @@ function App(props) {
 
     const [hideCompleted, setHideCompleted] = useState(false);
     const [mouseOver, setMouseOver] = useState(false);
+    const [sortBy, setSortBy] = useState("");
 
     if(error) {
         console.log("error!");
@@ -67,11 +68,16 @@ function App(props) {
         setMouseOver(!mouseOver);
     }
 
+    function handleSortBy(sortType) {
+        setSortBy(sortType);
+    }
+
     if (loading) {
         return <div>Loading...</div>;
     }
     return <div className="App">
             <Header/>
+            <SortButton onChange={(e) => handleSortBy(e.target.value)}/>
             <TaskList data={hideCompleted ? uncompletedData : people}
                       onTaskChangeField={handleChangeField}
                       onAddTask={handleAddTask}
