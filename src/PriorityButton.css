@@ -10,15 +10,15 @@
     outline: none;
 }
 
-.high {
+.a {
     background-color: #ff8484;
 }
 
-.med {
+.b {
     background-color: yellowgreen;
 }
 
-.low {
+.c {
     background-color: lightskyblue;
 }
 

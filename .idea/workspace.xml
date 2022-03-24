@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c1a342f-6557-42a2-baac-8c7c45430db0" name="Changes" comment="trying to make firestore thing compile pt 3">
+      <change afterPath="$PROJECT_DIR$/src/AscendButton.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/AscendButton.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BottomButtons.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/BottomButtons.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CheckButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/CheckButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PriorityButton.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/PriorityButton.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PriorityButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/PriorityButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SortButton.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortButton.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SortButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortButton.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

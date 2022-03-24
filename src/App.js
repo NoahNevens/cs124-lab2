@@ -8,14 +8,17 @@ import {collection, doc, setDoc, deleteDoc, query, orderBy, serverTimestamp} fro
 import {useCollectionData} from "react-firebase-hooks/firestore";
 import {useState} from "react";
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
+import AscendButton from "./AscendButton";
 
 function App(props) {
     const [hideCompleted, setHideCompleted] = useState(false);
     const [mouseOver, setMouseOver] = useState(false);
     const [sortBy, setSortBy] = useState("created");
+    const [ascending, setAscending] = useState(true);
 
+    const order = ascending ? "asc" : "desc";
     const collectionName = "task-list";
-    const q = query(collection(props.db, collectionName), orderBy(sortBy));  // how  to sort??
+    const q = query(collection(props.db, collectionName), orderBy(sortBy, order));  // how  to sort??
     const [tasks, loading, error] = useCollectionData(q);
 
     if (loading) {
@@ -55,7 +58,7 @@ function App(props) {
             {id: newId,
                 value: taskValue,
                 completed: false,
-                priority: "high",
+                priority: "a",
                 created: serverTimestamp() });
     }
 
@@ -75,10 +78,16 @@ function App(props) {
         setSortBy(sortType);
     }
 
+    function handleAscending() {
+        setAscending(!ascending);
+    }
+
     return <div className="App">
             <Header/>
             <SortButton onChange={(e) => handleSortBy(e.target.value)}
                         sortBy={sortBy} />
+            <AscendButton ascending={ascending}
+                          onClick={handleAscending}/>
             <TaskList data={hideCompleted ? uncompletedTasks : tasks}
                       onTaskChangeField={handleChangeField}
                       onAddTask={handleAddTask}
