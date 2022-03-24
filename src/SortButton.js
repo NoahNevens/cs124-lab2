@@ -1,11 +1,14 @@
 import "./SortButton.css";
 
 function SortButton(props) {
-    return <select className={"sort"} onChange={props.onChange} value={props.sortBy}>
-        <option value={"value"}>name</option>
-        <option value={"priority"}>priority</option>
-        <option value={"created"}>date</option>
-    </select>
+    return <>
+        <label htmlFor={"sortSelector"} id={"sortLabel"}>Sort by:</label><br/>
+        <select onChange={props.onChange} id={"sortSelector"} value={props.sortBy}>
+            <option value={"priority"}>priority</option>
+            <option value={"created"}>date added</option>
+            <option value={"value"}>alphabetical</option>
+        </select>
+    </>
 }
 
 export default SortButton;

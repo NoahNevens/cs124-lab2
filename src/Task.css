@@ -8,7 +8,7 @@
 
     font-size: 150%;
     color: white;
-    padding-inline-start: 2%;
+    padding-inline-start: 10px;
 }
 
 input:focus {
@@ -19,4 +19,5 @@ input:focus {
     display: flex;
     align-content: space-between;
     column-gap: 25pt;
+    height: 28px;
 }

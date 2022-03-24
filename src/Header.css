@@ -1,5 +1,5 @@
 h1 {
-    font-size: 420%;
+    font-size: 9vh;
     text-align: left;
     padding-left: 2.5%;
     color: white;
@@ -7,12 +7,10 @@ h1 {
     font-weight: bolder;
     text-transform: capitalize;
     margin: 20px 0 20px;
-    size: 300%;
-    padding-bottom: 10px;
 }
 
 .fa-calendar-check {
     position: absolute;
     right: 3%;
-    top: 3%;
+    margin-top: -3px;
 }

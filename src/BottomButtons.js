@@ -13,7 +13,7 @@ function BottomButtons(props) {
             {props.isHideCompleted ? "Show All" : "Hide Completed"}</button>
         <button type="radio" className="bottom_button_reg" id="clear_complete"
                 onClick={props.onClearCompletedItems} >
-            Clear All Completed</button>
+            Clear Completed</button>
     </div>;
 }
 

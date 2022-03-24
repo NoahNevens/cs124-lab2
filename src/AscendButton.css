@@ -1,14 +1,16 @@
 button {
     border: none;
     outline: none;
-    margin-left: 2%;
-    border-radius: 5%;
+    margin-left: 10px;
+    border-radius: 5px;
     height: 27.49px;
-    width: 4%;
+    width: 27px;
     font-size: 100%;
+    background-color: rgb(223, 227, 243);
 }
 
 button:hover {
     background-color: black;
     color: white;
+    box-shadow: 0 0 6px rgb(101, 170, 248);
 }

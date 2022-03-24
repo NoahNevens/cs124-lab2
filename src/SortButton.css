@@ -1,10 +1,15 @@
-.sort {
+#sortSelector {
     border: none;
     outline: none;
-    background-color: rgb(197, 204, 224);
-    margin-bottom: 5%;
+    background-color: rgb(223, 227, 243);
+    margin-bottom: 15px;
     margin-left: 2.5%;
-    width: 15%;
+    width: 100px;
     height: 27.49px;
     border-radius: 5px;
+}
+
+#sortLabel {
+    color: white;
+    margin-left: 2.5%;
 }
