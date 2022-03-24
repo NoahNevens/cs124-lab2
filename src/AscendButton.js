@@ -1,7 +1,7 @@
 import "./AscendButton.css";
 
 function AscendButton(props) {
-    return <button onClick={props.onClick}>
+    return <button className={"ascendButton"} onClick={props.onClick}>
         {props.ascending ? "▲" : "▼"}
     </button>
 }

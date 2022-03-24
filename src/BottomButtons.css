@@ -15,8 +15,6 @@
     font-size: 100%;
     color: rgb(15, 116, 231);
     background: white;
-    /* background: rgb(101, 170, 248);
-    background: radial-gradient(rgb(54, 147, 253), rgb(17, 105, 206)); */
     border-radius: 5px;
     border: none;
     outline: none;
@@ -30,8 +28,6 @@
     font-size: 100%;
     color: white;
     background: radial-gradient(rgb(0, 114, 185), rgb(0, 60, 255));
-    /* background: rgb(101, 170, 248);
-    background: radial-gradient(rgb(54, 147, 253), rgb(17, 105, 206)); */
     border-radius: 5px;
     border: none;
     outline: none;
@@ -49,7 +45,12 @@
     margin-right: 2.5%;
 }
 
-.bottom_button:hover {
+.bottom_button_reg:hover {
     background: radial-gradient(rgb(0, 114, 185), rgb(0, 60, 255));
     color: white;
+}
+
+.bottom_button_new:hover {
+    background: white;
+    color: rgb(15, 116, 231);
 }

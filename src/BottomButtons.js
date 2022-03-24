@@ -3,10 +3,9 @@ import "./BottomButtons.css";
 function BottomButtons(props) {
 
     return <div className="buttons">
-        <button type="radio" className={
-            props.isHideCompleted ? props.isMouseOver ? "bottom_button_reg" : "bottom_button_new" :
-                props.isMouseOver ? "bottom_button_new" : "bottom_button_reg"
-        } id="show_uncomplete"
+        <button type="radio"
+                className={props.isHideCompleted ? "bottom_button_new" : "bottom_button_reg"}
+                id="show_uncomplete"
                 onClick={props.onToggleCompletedItems}
                 onMouseOver={props.onMouseOver}
                 onMouseOut={props.onMouseOut} >
