@@ -10,14 +10,12 @@
     outline: none;
 }
 
-
-
 .high {
-    background-color: lightcoral;
+    background-color: #ff8484;
 }
 
 .med {
-    background-color: darkkhaki;
+    background-color: yellowgreen;
 }
 
 .low {

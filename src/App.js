@@ -4,25 +4,28 @@ import Header from './Header.js';
 import TaskList from './TaskList.js';
 import BottomButtons from './BottomButtons.js';
 import SortButton from './SortButton.js';
-import {query, collection, doc, setDoc, deleteDoc, serverTimestamp, where} from "firebase/firestore";
+import {collection, doc, setDoc, deleteDoc, query, orderBy, serverTimestamp} from "firebase/firestore";
 import {useCollectionData} from "react-firebase-hooks/firestore";
 import {useState} from "react";
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 
 function App(props) {
-    const collectionName = "task-list";
-    const q = query(collection(props.db, collectionName));
-    const [people, loading, error] = useCollectionData(q);
-
     const [hideCompleted, setHideCompleted] = useState(false);
     const [mouseOver, setMouseOver] = useState(false);
-    // const [sortBy, setSortBy] = useState("");
+    const [sortBy, setSortBy] = useState("created");
 
+    const collectionName = "task-list";
+    const q = query(collection(props.db, collectionName), orderBy(sortBy));  // how  to sort??
+    const [tasks, loading, error] = useCollectionData(q);
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
     if(error) {
-        console.log("error!");
+        return <div>Error! Uh oh</div>;
     }
 
-    const uncompletedData = query(collection(props.db, collectionName), where("completed", "==", "false"));
+    const uncompletedTasks = tasks.filter(t => !t.completed);
 
     function handleChangeField(taskId, field, value) {
         setDoc(doc(props.db, collectionName, taskId), {[field]:value}, {merge:true});
@@ -33,15 +36,15 @@ function App(props) {
     }
 
     function handleClearCompleted() {
-        const toDelete = query(collection(props.db, collectionName), where("completed", "==", "true"));
-        for (const taskDoc of toDelete) {
-            deleteDoc(taskDoc);
+        const toDelete = tasks.filter(task => task.completed);
+        for (const task of toDelete) {
+            handleItemDeleted(task.id);
         }
     }
 
     function handleAddTask(taskValue) {
         // not allowed to have more than 1 blank task at a time
-        for (const task of people) {
+        for (const task of tasks) {
             if (task.value === "") {
                 return;
             }
@@ -69,19 +72,17 @@ function App(props) {
     }
 
     function handleSortBy(sortType) {
-        // setSortBy(sortType);
+        setSortBy(sortType);
     }
 
-    if (loading) {
-        return <div>Loading...</div>;
-    }
     return <div className="App">
             <Header/>
-            <SortButton onChange={(e) => handleSortBy(e.target.value)}/>
-            <TaskList data={hideCompleted ? uncompletedData : people}
+            <SortButton onChange={(e) => handleSortBy(e.target.value)}
+                        sortBy={sortBy} />
+            <TaskList data={hideCompleted ? uncompletedTasks : tasks}
                       onTaskChangeField={handleChangeField}
                       onAddTask={handleAddTask}
-                      onItemDeleted={handleItemDeleted}/>
+                      onItemDeleted={handleItemDeleted} />
             <BottomButtons onToggleCompletedItems={() => handleToggleCompletedItems()}
                            onClearCompletedItems={() => handleClearCompleted()}
                            onMouseOver={() => handleMouseOver()}
