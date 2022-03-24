@@ -12,7 +12,6 @@ import AscendButton from "./AscendButton";
 
 function App(props) {
     const [hideCompleted, setHideCompleted] = useState(false);
-    const [mouseOver, setMouseOver] = useState(false);
     const [sortBy, setSortBy] = useState("created");
     const [ascending, setAscending] = useState(true);
 
@@ -64,14 +63,7 @@ function App(props) {
 
     function handleToggleCompletedItems() {
         setHideCompleted(!hideCompleted);
-    }
-
-    function handleMouseOver() {
-        setMouseOver(!mouseOver);
-    }
-
-    function handleMouseOut() {
-        setMouseOver(!mouseOver);
+        console.log('toggle');
     }
 
     function handleSortBy(sortType) {
@@ -83,22 +75,24 @@ function App(props) {
     }
 
     return <div className="App">
+        <div id="content">
             <Header/>
-            <SortButton onChange={(e) => handleSortBy(e.target.value)}
-                        sortBy={sortBy} />
-            <AscendButton ascending={ascending}
-                          onClick={handleAscending}/>
-            <TaskList data={hideCompleted ? uncompletedTasks : tasks}
-                      onTaskChangeField={handleChangeField}
-                      onAddTask={handleAddTask}
-                      onItemDeleted={handleItemDeleted} />
-            <BottomButtons onToggleCompletedItems={() => handleToggleCompletedItems()}
-                           onClearCompletedItems={() => handleClearCompleted()}
-                           onMouseOver={() => handleMouseOver()}
-                           onMouseOut={() => handleMouseOut()}
-                           isHideCompleted={hideCompleted}
-                           isMouseOver={mouseOver}/>
-        </div>;
+            <div id="taskSection">
+                <SortButton onChange={(e) => handleSortBy(e.target.value)}
+                            sortBy={sortBy} />
+                <AscendButton ascending={ascending}
+                              onClick={handleAscending}/>
+                <TaskList data={hideCompleted ? uncompletedTasks : tasks}
+                          onTaskChangeField={handleChangeField}
+                          onAddTask={handleAddTask}
+                          onItemDeleted={handleItemDeleted} />
+            </div>
+        </div>
+        <BottomButtons onToggleCompletedItems={() => handleToggleCompletedItems()}
+                       onClearCompletedItems={() => handleClearCompleted()}
+                       isHideCompleted={hideCompleted} />
+
+    </div>;
 }
 
 export default App;
