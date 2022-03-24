@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c1a342f-6557-42a2-baac-8c7c45430db0" name="Changes" comment="trying to make firestore thing compile pt 3">
-      <change afterPath="$PROJECT_DIR$/src/AscendButton.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/AscendButton.js" afterDir="false" />
+    <list default="true" id="4c1a342f-6557-42a2-baac-8c7c45430db0" name="Changes" comment="Changes before fixing the error">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PriorityButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/PriorityButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AscendButton.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/AscendButton.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SortButton.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortButton.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -257,7 +255,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647808974014</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Changes before fixing the error">
+      <created>1648086226353</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1648086226353</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,6 +295,7 @@
     <MESSAGE value="trying to make firestore thing compile" />
     <MESSAGE value="trying to make firestore thing compile pt 2" />
     <MESSAGE value="trying to make firestore thing compile pt 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="trying to make firestore thing compile pt 3" />
+    <MESSAGE value="Changes before fixing the error" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes before fixing the error" />
   </component>
 </project>

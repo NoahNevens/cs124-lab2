@@ -1,5 +1,11 @@
 button {
-    margin-left: 2%
+    border: none;
+    outline: none;
+    margin-left: 2%;
+    border-radius: 5%;
+    height: 27.49px;
+    width: 4%;
+    font-size: 100%;
 }
 
 button:hover {
