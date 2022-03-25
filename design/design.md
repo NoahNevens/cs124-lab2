@@ -57,3 +57,26 @@ Marcos also noted that it makes more sense for the "Show Only Uncomplete" button
 We asked another user, Anshul Kamath, to give feedback on our app. He noticed that it was possible to have several empty tasks at once and that this was kind of strange. After adding a new task, you should type something in that box before adding a new task. We made it so that if there is a blank new task, you cannot add another new task before text is added to the original new task. Furthermore, if your cursor is focused on a task and then you click off the task and the box is empty, then the task is deleted. The app assumes that if you backspace an entire task or add a task but don't type anything in it, then you want to delete it.
 
 We also had a user tell us that it would be useful if there was some feedback for when you type in a text box. So we made the text box darker when you start typing in it. 
+
+<hr>
+<h3>Lab 3 Design</h3>
+
+<p> One of the biggest issues with our lab 2 app was that the tasks would run off the screen and become unreachable. For now, we decided that implementing a limit on the number of tasks would be interesting.
+When the user tries to add more than 10 tasks, a message appears at the bottom of the screen and disappears after 2.5 seconds. Now that we have a database that can be shared by people, we don't want the app to 
+become cluttered with too many tasks. As a general life rule, if you have more than 10 tasks to complete, you should finish some of them before making new ones.
+</p>
+
+<p>One of the users we tested with mentioned that the task alert was difficult to see so we changed it to be orange and bold, which is a little easier. </p>
+
+<img src="/design/orangealert.png" alt="after alert was made orange" style="height: 400px" />
+
+<p>Additionally, we previously had bottom buttons that read "Show Only Uncomplete" and "Clear All Completed." We found that by decreasing that text to "Hide Completed"
+and "Clear Completed", it was easier to read and didn't have to wrap as much at smaller screen sizes. In the name of being even more practical, we made it so that the bottom
+buttons do not appear if no tasks are completed, since we noticed that there is no reason to have the bottom buttons otherwise.</p>
+
+<p>We had multiple users tell us that adding a due date would be a good idea because their favorite to-do list applications apparently include due date features. We found this to be 
+a good suggestion. </p>
+
+<img src="/design/duedate.png" alt="the due date design" style="height: 300px"/>
+
+<p>Several users also liked the color coding of the priority levels. We used some of this input to choose the specific colors. </p>

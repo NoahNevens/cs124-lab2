@@ -1,5 +1,6 @@
 import "./Task.css";
 import CheckButton from "./CheckButton";
+import DueDate from "./DueDate";
 import PriorityButton from "./PriorityButton";
 
 function Task(props) {
@@ -22,6 +23,10 @@ function Task(props) {
                 onBlur={() => {if (props.value === "") {props.onItemDeleted(props.id)}} }
                 value={props.value}
                 placeholder={"Add new task"}
+            />
+            <DueDate
+                date={props.date}
+                onChange={(e) => props.onTaskChangeField(props.id, "date", e.target.value)}
             />
             <PriorityButton
                 priority={props.priority}

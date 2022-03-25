@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './App.css';
 import Header from './Header.js';
 import TaskList from './TaskList.js';
@@ -9,11 +9,13 @@ import {useCollectionData} from "react-firebase-hooks/firestore";
 import {useState} from "react";
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 import AscendButton from "./AscendButton";
+import task from "./Task";
 
 function App(props) {
     const [hideCompleted, setHideCompleted] = useState(false);
     const [sortBy, setSortBy] = useState("created");
     const [ascending, setAscending] = useState(true);
+    const [taskOverFlow, setTaskOverFlow] = useState(false);
 
     const order = ascending ? "asc" : "desc";
     const collectionName = "task-list";
@@ -28,6 +30,7 @@ function App(props) {
     }
 
     const uncompletedTasks = tasks.filter(t => !t.completed);
+    const completedTasks = tasks.filter(t => t.completed);
 
     function handleChangeField(taskId, field, value) {
         setDoc(doc(props.db, collectionName, taskId), {[field]:value}, {merge:true});
@@ -35,6 +38,9 @@ function App(props) {
 
     function handleItemDeleted(taskId) {
         deleteDoc(doc(props.db, collectionName, taskId));
+        if (tasks.length <= 10) {
+            setTaskOverFlow(false);
+        }
     }
 
     function handleClearCompleted() {
@@ -45,6 +51,13 @@ function App(props) {
     }
 
     function handleAddTask(taskValue) {
+        if (tasks.length >= 10) {
+            setTaskOverFlow(true);
+            setTimeout(function() {
+                setTaskOverFlow(false)
+            }, 2500);
+            return;
+        }
         // not allowed to have more than 1 blank task at a time
         for (const task of tasks) {
             if (task.value === "") {
@@ -58,7 +71,8 @@ function App(props) {
                 value: taskValue,
                 completed: false,
                 priority: "a",
-                created: serverTimestamp() });
+                created: serverTimestamp(),
+                date: new Date()});
     }
 
     function handleToggleCompletedItems() {
@@ -88,9 +102,10 @@ function App(props) {
                           onItemDeleted={handleItemDeleted} />
             </div>
         </div>
-        <BottomButtons onToggleCompletedItems={() => handleToggleCompletedItems()}
+        {taskOverFlow && <div className={"taskOverFlow"}>10 task limit reached. Get premium for more!</div>}
+        {completedTasks.length >= 1 && <BottomButtons onToggleCompletedItems={() => handleToggleCompletedItems()}
                        onClearCompletedItems={() => handleClearCompleted()}
-                       isHideCompleted={hideCompleted} />
+                       isHideCompleted={hideCompleted} />}
 
     </div>;
 }

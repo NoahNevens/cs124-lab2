@@ -5,15 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c1a342f-6557-42a2-baac-8c7c45430db0" name="Changes" comment="Changes before fixing the error">
+      <change afterPath="$PROJECT_DIR$/design/orangealert.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DueDate.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DueDate.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/design/design.md" beforeDir="false" afterPath="$PROJECT_DIR$/design/design.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BottomButtons.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/BottomButtons.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BottomButtons.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/BottomButtons.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PriorityButton.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/PriorityButton.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SortButton.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortButton.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TaskList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaskList.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SortButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Task.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Task.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
