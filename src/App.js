@@ -1,4 +1,3 @@
-import React, {useEffect} from 'react';
 import './App.css';
 import Header from './Header.js';
 import TaskList from './TaskList.js';
@@ -9,7 +8,6 @@ import {useCollectionData} from "react-firebase-hooks/firestore";
 import {useState} from "react";
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 import AscendButton from "./AscendButton";
-import task from "./Task";
 
 function App(props) {
     const [hideCompleted, setHideCompleted] = useState(false);
