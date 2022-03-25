@@ -18,6 +18,6 @@ input:focus {
 .task {
     display: flex;
     align-content: space-between;
-    column-gap: 25pt;
+    column-gap: 10pt;
     height: 28px;
 }

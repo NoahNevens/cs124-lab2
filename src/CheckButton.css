@@ -3,6 +3,7 @@
 
 .reg_round, .add_round {
     position: relative;
+    padding-right: 8px;
 }
 
 .reg_round label,
