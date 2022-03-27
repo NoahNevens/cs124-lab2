@@ -6,9 +6,9 @@
     height: 100%;
     width: 100%;
 
-    font-size: 150%;
+    font-size: 100%;
     color: white;
-    padding-inline-start: 10px;
+    padding-inline-start: 8px;
 }
 
 input:focus {
@@ -19,5 +19,5 @@ input:focus {
     display: flex;
     align-content: space-between;
     column-gap: 10pt;
-    height: 28px;
+    height: 26px;
 }

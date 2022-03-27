@@ -6,19 +6,19 @@
     cursor: pointer;
     /*margin-right: 0.7%;*/
     width: 78px;
-    height: 29.5px;
+    height: 27.49px;
     outline: none;
 }
 
-.a {
+.high {
     background-color: #ff8484;
 }
 
-.b {
+.med {
     background-color: yellowgreen;
 }
 
-.c {
+.low {
     background-color: lightskyblue;
 }
 

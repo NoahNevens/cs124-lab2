@@ -23,10 +23,11 @@ function Task(props) {
                 onBlur={() => {if (props.value === "") {props.onItemDeleted(props.id)}} }
                 value={props.value}
                 placeholder={"Add new task"}
+                aria-label={props.value}
             />
             <DueDate
-                date={props.date}
-                onChange={(e) => props.onTaskChangeField(props.id, "date", e.target.value)}
+                dueDate={props.dueDate}
+                onChange={(e) => props.onTaskChangeField(props.id, "dueDate", e.target.value)}
             />
             <PriorityButton
                 priority={props.priority}
