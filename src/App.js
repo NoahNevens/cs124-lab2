@@ -13,7 +13,7 @@ function App(props) {
     const [hideCompleted, setHideCompleted] = useState(false);
     const [sortBy, setSortBy] = useState("created");
     const [ascending, setAscending] = useState(true);
-    const [taskOverFlow, setTaskOverFlow] = useState(false);
+    // const [taskOverFlow, setTaskOverFlow] = useState(false);
 
     const order = ascending ? "asc" : "desc";
     const collectionName = "task-list";
