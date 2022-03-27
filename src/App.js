@@ -13,11 +13,10 @@ function App(props) {
     const [hideCompleted, setHideCompleted] = useState(false);
     const [sortBy, setSortBy] = useState("created");
     const [ascending, setAscending] = useState(true);
-    // const [taskOverFlow, setTaskOverFlow] = useState(false);
 
     const order = ascending ? "asc" : "desc";
     const collectionName = "task-list";
-    const q = query(collection(props.db, collectionName), orderBy(sortBy, order));  // how  to sort??
+    const q = query(collection(props.db, collectionName), orderBy(sortBy, order));
     const [tasks, loading, error] = useCollectionData(q);
 
     if (loading) {
@@ -36,9 +35,6 @@ function App(props) {
 
     function handleItemDeleted(taskId) {
         deleteDoc(doc(props.db, collectionName, taskId));
-        if (tasks.length <= 10) {
-            setTaskOverFlow(false);
-        }
     }
 
     function handleClearCompleted() {
@@ -49,13 +45,6 @@ function App(props) {
     }
 
     function handleAddTask(taskValue) {
-        // if (tasks.length >= 10) {
-        //     setTaskOverFlow(true);
-        //     setTimeout(function() {
-        //         setTaskOverFlow(false)
-        //     }, 2500);
-        //     return;
-        // }
         // not allowed to have more than 1 blank task at a time
         for (const task of tasks) {
             if (task.value === "") {
@@ -100,7 +89,6 @@ function App(props) {
                       onItemDeleted={handleItemDeleted} />
             </div>
         </div>
-        {/*{taskOverFlow && <div className={"taskOverFlow"}>10 task limit reached. Get premium for more!</div>}*/}
         {completedTasks.length >= 1 && <BottomButtons onToggleCompletedItems={() => handleToggleCompletedItems()}
                        onClearCompletedItems={() => handleClearCompleted()}
                        isHideCompleted={hideCompleted} />}
