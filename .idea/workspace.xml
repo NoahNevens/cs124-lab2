@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c1a342f-6557-42a2-baac-8c7c45430db0" name="Changes" comment="adding to show only uncomplete">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    <list default="true" id="4c1a342f-6557-42a2-baac-8c7c45430db0" name="Changes" comment="trying to make firestore thing compile pt 3">
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,14 +55,22 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/design" />
       <recent name="$PROJECT_DIR$/public" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.deploy">
+  <component name="RunManager" selected="npm.npm start">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
       <method v="2" />
     </configuration>
-    <configuration name="App.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/App.js" working-dir="$PROJECT_DIR$/src">
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
       <method v="2" />
     </configuration>
     <configuration name="deploy" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
@@ -78,11 +83,31 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="install gh-pages" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+    <configuration name="firebase-init" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
-        <script value="install gh-pages" />
+        <script value="firebase-init" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="firebase-login" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="firebase-login" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="install-dependencies" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="install-dependencies" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -100,9 +125,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.build" />
+        <item itemvalue="npm.firebase-init" />
+        <item itemvalue="npm.firebase-login" />
+        <item itemvalue="npm.install-dependencies" />
         <item itemvalue="npm.deploy" />
-        <item itemvalue="Node.js.App.js" />
-        <item itemvalue="npm.install gh-pages" />
       </list>
     </recent_temporary>
   </component>
@@ -119,6 +146,8 @@
       <workItem from="1645914762566" duration="11959000" />
       <workItem from="1646262123605" duration="3447000" />
       <workItem from="1646280195331" duration="1387000" />
+      <workItem from="1646866669137" duration="2318000" />
+      <workItem from="1647806065261" duration="2824000" />
     </task>
     <task id="LOCAL-00001" summary="we got started!">
       <created>1645224283572</created>
@@ -197,7 +226,49 @@
       <option name="project" value="LOCAL" />
       <updated>1646264087624</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="THERE IS STILL AN ERROR">
+      <created>1646867760379</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1646867760379</updated>
+    </task>
+    <task id="LOCAL-00013" summary="trying to make firestore thing compile">
+      <created>1647806313506</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1647806313507</updated>
+    </task>
+    <task id="LOCAL-00014" summary="trying to make firestore thing compile pt 2">
+      <created>1647806840811</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1647806840811</updated>
+    </task>
+    <task id="LOCAL-00015" summary="trying to make firestore thing compile pt 3">
+      <created>1647808974012</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1647808974014</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Changes before fixing the error">
+      <created>1648086226353</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1648086226353</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Finishing touches and design.md">
+      <created>1648187119257</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1648187119257</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,6 +297,12 @@
     <MESSAGE value="new icon! (we hope)" />
     <MESSAGE value="updating readme" />
     <MESSAGE value="adding to show only uncomplete" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding to show only uncomplete" />
+    <MESSAGE value="THERE IS STILL AN ERROR" />
+    <MESSAGE value="trying to make firestore thing compile" />
+    <MESSAGE value="trying to make firestore thing compile pt 2" />
+    <MESSAGE value="trying to make firestore thing compile pt 3" />
+    <MESSAGE value="Changes before fixing the error" />
+    <MESSAGE value="Finishing touches and design.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finishing touches and design.md" />
   </component>
 </project>

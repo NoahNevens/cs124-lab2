@@ -1,0 +1,27 @@
+.priority {
+    border-radius: 5px;
+    background-color: white;
+    border: none;
+    font-family: 'Lora', sans-serif;
+    cursor: pointer;
+    /*margin-right: 0.7%;*/
+    width: 78px;
+    height: 27.49px;
+    outline: none;
+}
+
+.high {
+    background-color: #ff8484;
+}
+
+.med {
+    background-color: yellowgreen;
+}
+
+.low {
+    background-color: lightskyblue;
+}
+
+.priority:hover {
+    box-shadow: 0 0 6px rgb(101, 170, 248);
+}

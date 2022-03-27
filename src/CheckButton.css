@@ -3,6 +3,7 @@
 
 .reg_round, .add_round {
     position: relative;
+    padding-right: 8px;
 }
 
 .reg_round label,
@@ -10,15 +11,16 @@
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: 27.49px;
-    height: 27.49px;
+    width: 27px;
+    height: 25.49px;
     left: 0;
     position: absolute;
     top: 0;
-    margin-top: 0.7px;
+    margin-top: 0.3px;
     cursor: pointer;
 }
 
+.reg_round label:hover,
 .add_round label:hover {
     box-shadow: 0 0 6px rgb(101, 170, 248);
 }
@@ -40,14 +42,14 @@
 .add_round label:after {
     color: white;
     content: "+";
-    left: 6px;
-    top: -2.5px;
+    left: 5.7px;
+    top: -4.5px;
     font-size: 160%;
     position: absolute;
 }
 
 .reg_round input[type="checkbox"] {
-    /*visibility: hidden;*/
+    visibility: hidden;
 }
 
 .reg_round input[type="checkbox"]:checked + label {
@@ -56,8 +58,8 @@
 }
 
 .add_round input[type="checkbox"] + label {
-    background-color: rgb(179, 146, 255);
-    border-color: rgb(179, 146, 255);
+    background-color: rgb(0, 60, 255);
+    border-color: rgb(0, 60, 255);
 }
 
 .reg_round input[type="checkbox"]:checked + label:after {

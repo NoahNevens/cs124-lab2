@@ -1,0 +1,20 @@
+#sortSelector {
+    border: none;
+    outline: none;
+    background-color: rgb(223, 227, 243);
+    margin-bottom: 15px;
+    /*margin-left: 2.5%;*/
+    width: 100px;
+    height: 27.49px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#sortLabel {
+    color: white;
+    /*margin-left: 2.5%;*/
+}
+
+#sortSelector:hover {
+    box-shadow: 0 0 6px rgb(101, 170, 248);
+}
