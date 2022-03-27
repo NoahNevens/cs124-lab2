@@ -49,13 +49,13 @@ function App(props) {
     }
 
     function handleAddTask(taskValue) {
-        if (tasks.length >= 10) {
-            setTaskOverFlow(true);
-            setTimeout(function() {
-                setTaskOverFlow(false)
-            }, 2500);
-            return;
-        }
+        // if (tasks.length >= 10) {
+        //     setTaskOverFlow(true);
+        //     setTimeout(function() {
+        //         setTaskOverFlow(false)
+        //     }, 2500);
+        //     return;
+        // }
         // not allowed to have more than 1 blank task at a time
         for (const task of tasks) {
             if (task.value === "") {
@@ -89,7 +89,7 @@ function App(props) {
     return <div className="App">
         <div id="content">
             <Header/>
-            <div id="taskSection">
+            <div id="task_section">
                 <SortButton onChange={(e) => handleSortBy(e.target.value)}
                             sortBy={sortBy} />
                 <AscendButton ascending={ascending}
@@ -100,7 +100,7 @@ function App(props) {
                           onItemDeleted={handleItemDeleted} />
             </div>
         </div>
-        {taskOverFlow && <div className={"taskOverFlow"}>10 task limit reached. Get premium for more!</div>}
+        {/*{taskOverFlow && <div className={"taskOverFlow"}>10 task limit reached. Get premium for more!</div>}*/}
         {completedTasks.length >= 1 && <BottomButtons onToggleCompletedItems={() => handleToggleCompletedItems()}
                        onClearCompletedItems={() => handleClearCompleted()}
                        isHideCompleted={hideCompleted} />}
