@@ -4,12 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c1a342f-6557-42a2-baac-8c7c45430db0" name="Changes" comment="Finishing touches and design.md">
+    <list default="true" id="4c1a342f-6557-42a2-baac-8c7c45430db0" name="Changes" comment="trying to make firestore thing compile pt 3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AscendButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/AscendButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CheckButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/CheckButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DueDate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DueDate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PriorityButton.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/PriorityButton.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PriorityButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/PriorityButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SortButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Task.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Task.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TaskList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaskList.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TaskList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaskList.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

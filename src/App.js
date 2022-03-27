@@ -68,7 +68,7 @@ function App(props) {
             {id: newId,
                 value: taskValue,
                 completed: false,
-                priority: "a",
+                priority: "high",
                 created: serverTimestamp(),
                 date: new Date()});
     }
@@ -90,14 +90,14 @@ function App(props) {
         <div id="content">
             <Header/>
             <div id="task_section">
-                <SortButton onChange={(e) => handleSortBy(e.target.value)}
-                            sortBy={sortBy} />
-                <AscendButton ascending={ascending}
-                              onClick={handleAscending}/>
-                <TaskList data={hideCompleted ? uncompletedTasks : tasks}
-                          onTaskChangeField={handleChangeField}
-                          onAddTask={handleAddTask}
-                          onItemDeleted={handleItemDeleted} />
+            <SortButton onChange={(e) => handleSortBy(e.target.value)}
+                        sortBy={sortBy} />
+            <AscendButton ascending={ascending}
+                          onClick={handleAscending}/>
+            <TaskList data={hideCompleted ? uncompletedTasks : tasks}
+                      onTaskChangeField={handleChangeField}
+                      onAddTask={handleAddTask}
+                      onItemDeleted={handleItemDeleted} />
             </div>
         </div>
         {/*{taskOverFlow && <div className={"taskOverFlow"}>10 task limit reached. Get premium for more!</div>}*/}

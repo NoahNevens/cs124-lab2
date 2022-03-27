@@ -6,8 +6,13 @@ function CheckButton(props) {
                disabled={props.isAdd}
                readOnly={true}
                checked={props.completed}
+               // DOESN'T WORK :(
+               // role="checkbox"
+               // aria-checked={props.completed}
+               // aria-labelledby="checkbox_label"
         />
-        <label htmlFor="reg_checkbox"
+        <label id="checkbox_label"
+               htmlFor="reg_checkbox"
                onClick={e => {props.isAdd ? props.onAddTask("", props.value) :
                    props.onTaskChangeField(props.id, "completed", !props.completed)}}
         />
