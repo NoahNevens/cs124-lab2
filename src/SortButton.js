@@ -7,7 +7,7 @@ function SortButton(props) {
             <option value={"priority"}>priority</option>
             <option value={"created"}>date added</option>
             <option value={"value"}>alphabetical</option>
-            <option value={"date"}>due date</option>
+            <option value={"date"}>date due</option>
         </select>
     </>
 }
