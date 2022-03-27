@@ -59,7 +59,7 @@ function App(props) {
                 completed: false,
                 priority: "high",
                 created: serverTimestamp(),
-                date: new Date()});
+                dueDate: new Date()});
     }
 
     function handleToggleCompletedItems() {
