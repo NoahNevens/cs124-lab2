@@ -8,11 +8,13 @@ import {useCollectionData} from "react-firebase-hooks/firestore";
 import {useState} from "react";
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 import AscendButton from "./AscendButton";
+import UndoButton from "./UndoButton";
 
 function App(props) {
     const [hideCompleted, setHideCompleted] = useState(false);
     const [sortBy, setSortBy] = useState("created");
     const [ascending, setAscending] = useState(true);
+    const [justDeleted, setJustDeleted] = useState([]);
 
     const order = ascending ? "asc" : "desc";
     const collectionName = "task-list";
@@ -42,6 +44,7 @@ function App(props) {
         for (const task of toDelete) {
             handleItemDeleted(task.id);
         }
+        setJustDeleted(toDelete);
     }
 
     function handleAddTask(taskValue) {
@@ -62,9 +65,15 @@ function App(props) {
                 dueDate: new Date()});
     }
 
+    function handleUndoDelete() {
+        for (const task of justDeleted) {
+            setDoc(doc(props.db, collectionName, task.id), {...task})
+        }
+        setJustDeleted([]);
+    }
+
     function handleToggleCompletedItems() {
         setHideCompleted(!hideCompleted);
-        console.log('toggle');
     }
 
     function handleSortBy(sortType) {
@@ -79,14 +88,16 @@ function App(props) {
         <div id="content">
             <Header/>
             <div id="task_section">
-            <SortButton onChange={(e) => handleSortBy(e.target.value)}
-                        sortBy={sortBy} />
-            <AscendButton ascending={ascending}
-                          onClick={handleAscending}/>
-            <TaskList data={hideCompleted ? uncompletedTasks : tasks}
-                      onTaskChangeField={handleChangeField}
-                      onAddTask={handleAddTask}
-                      onItemDeleted={handleItemDeleted} />
+                <SortButton onChange={(e) => handleSortBy(e.target.value)}
+                            sortBy={sortBy} />
+                <AscendButton ascending={ascending}
+                              onClick={handleAscending}/>
+                <UndoButton justDeleted={justDeleted}
+                            onClick={handleUndoDelete} />
+                <TaskList data={hideCompleted ? uncompletedTasks : tasks}
+                          onTaskChangeField={handleChangeField}
+                          onAddTask={handleAddTask}
+                          onItemDeleted={handleItemDeleted} />
             </div>
         </div>
         {completedTasks.length >= 1 && <BottomButtons onToggleCompletedItems={() => handleToggleCompletedItems()}

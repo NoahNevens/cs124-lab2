@@ -1,0 +1,17 @@
+.undoButton {
+    border: none;
+    outline: none;
+    margin-left: 10px;
+    border-radius: 5px;
+    height: 27.49px;
+    width: 27px;
+    color: black;
+    font-size: 15pt;
+    font-weight: bold;
+    background-color: rgb(223, 227, 243);
+    cursor: pointer;
+}
+
+.disabled {
+    cursor: auto;
+}
