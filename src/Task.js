@@ -12,6 +12,9 @@ function Task(props) {
                 isAdd={false}
                 completed={props.completed}
                 onTaskChangeField={props.onTaskChangeField}
+                // role="checkbox"
+                // aria-checked={props.completed}
+                // aria-label={"test4"}
             />
             <input
                 type="text"
@@ -29,8 +32,7 @@ function Task(props) {
                 dueDate={props.dueDate}
                 onChange={(e) => props.onTaskChangeField(props.id, "dueDate", e.target.value)}
             />
-            <PriorityButton
-                priority={props.priority}
+            <PriorityButton priority={props.priority}
                 onChange={(e) => props.onTaskChangeField(props.id, "priority", e.target.value)}
             />
         </div>

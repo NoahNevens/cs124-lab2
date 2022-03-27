@@ -1,9 +1,10 @@
 import "./UndoButton.css";
 
 function UndoButton(props) {
-    const canUndo = !(props.justDeleted.length === 0);
-    return <button className={"undoButton " + (canUndo ? "" : "disabled")}
-                   onClick={props.onClick} disabled={!canUndo}
+    return <button className="undoButton"
+                   onClick={props.onClick}
+                   disabled={props.justDeleted.length === 0}
+                   title="undo"
                    aria-label={"undo last delete"} > ⤺
     </button>
 }
