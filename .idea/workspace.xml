@@ -17,6 +17,7 @@
       <change beforePath="$PROJECT_DIR$/src/Header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Header.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PriorityButton.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/PriorityButton.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SortButton.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortButton.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Task.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Task.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UndoButton.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/UndoButton.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

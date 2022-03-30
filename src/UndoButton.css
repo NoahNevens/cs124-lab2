@@ -12,16 +12,13 @@
     cursor: pointer;
 }
 
-.undoButton:hover:not([disabled]) {
-    box-shadow: 0 0 6px rgb(101, 170, 248);
-}
-
 .undoButton:disabled {
     cursor: auto;
     opacity: 70%;
 }
 
+.undoButton:hover:not([disabled]),
 .undoButton:focus {
-    outline: 3px solid black;
-    background-color: white;
+    background-color: black;
+    color: white;
 }

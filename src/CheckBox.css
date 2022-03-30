@@ -14,6 +14,7 @@ input[type="checkbox"] {
     background-color: #fff;
     margin-left: 0pt;
 
+    cursor: pointer;
     font-size: 140%;
     width: 27px;
     height: 27px;
@@ -34,14 +35,15 @@ input[type="checkbox"]::before {
     transform: scale(0);
     transform-origin: bottom left;
     transition: 120ms transform ease-in-out;
-    box-shadow: inset 1em 1em #66bb6a; /*#66bb6a*/
+    box-shadow: inset 1em 1em #66bb6a;
 }
 
 input[type="checkbox"]:checked::before {
     transform: scale(1);
 }
 
+input[type="checkbox"]:hover,
 input[type="checkbox"]:focus {
-    background-color: gray;
+    background-color: lightgray;
     outline: none;
 }

@@ -10,10 +10,11 @@
     padding-left: 4.5pt;
 }
 
-.add_button:hover {
-    box-shadow: 0 0 6px rgb(101, 170, 248);
-}
 
+.add_button:hover,
 .add_button:focus {
-    outline: 4px solid black;
+    /*outline: 2px solid white;*/
+    outline: none;
+    background-color: darkblue;
+
 }

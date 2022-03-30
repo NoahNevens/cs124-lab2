@@ -5,16 +5,13 @@ import PriorityButton from "./PriorityButton";
 
 function Task(props) {
 
-    return <div>
+    return <>
         <div className="task" id={props.id}>
             <CheckBox
                 id={props.id} value={props.value}
                 isAdd={false}
                 completed={props.completed}
                 onTaskChangeField={props.onTaskChangeField}
-                // role="checkbox"
-                // aria-checked={props.completed}
-                // aria-label={"test4"}
             />
             <input
                 type="text"
@@ -36,7 +33,7 @@ function Task(props) {
                 onChange={(e) => props.onTaskChangeField(props.id, "priority", e.target.value)}
             />
         </div>
-    </div>;
+    </>;
 }
 
 export default Task;

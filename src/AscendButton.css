@@ -10,13 +10,8 @@
     cursor: pointer;
 }
 
-.ascendButton:hover {
-    /*background-color: black;*/
-    /*color: white;*/
-    box-shadow: 0 0 6px rgb(101, 170, 248);
-}
-
+.ascendButton:hover,
 .ascendButton:focus {
-    outline: 3px solid black;
-    background-color: white;
+    background-color: black;
+    color: white;
 }
