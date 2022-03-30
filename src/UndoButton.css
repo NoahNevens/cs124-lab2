@@ -20,3 +20,8 @@
     cursor: auto;
     opacity: 70%;
 }
+
+.undoButton:focus {
+    outline: 3px solid black;
+    background-color: white;
+}

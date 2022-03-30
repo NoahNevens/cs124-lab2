@@ -40,3 +40,8 @@ input[type="checkbox"]::before {
 input[type="checkbox"]:checked::before {
     transform: scale(1);
 }
+
+input[type="checkbox"]:focus {
+    background-color: gray;
+    outline: none;
+}

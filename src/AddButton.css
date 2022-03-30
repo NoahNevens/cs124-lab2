@@ -13,3 +13,7 @@
 .add_button:hover {
     box-shadow: 0 0 6px rgb(101, 170, 248);
 }
+
+.add_button:focus {
+    outline: 4px solid black;
+}

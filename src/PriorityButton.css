@@ -25,3 +25,19 @@
 .priority:hover {
     box-shadow: 0 0 6px rgb(101, 170, 248);
 }
+
+.priority:focus {
+    color: white;
+}
+
+.high:focus {
+    background-color: #750202;
+}
+
+.med:focus {
+    background-color: #43600e;
+}
+
+.low:focus {
+    background-color: #1a94ea;
+}

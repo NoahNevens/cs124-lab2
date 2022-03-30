@@ -18,3 +18,8 @@
 #sortSelector:hover {
     box-shadow: 0 0 6px rgb(101, 170, 248);
 }
+
+#sortSelector:focus {
+    outline: 3px solid black;
+    background-color: white;
+}

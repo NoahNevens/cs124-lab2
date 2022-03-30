@@ -5,6 +5,8 @@ function CheckBox(props) {
                checked={props.completed}
                onClick={e => {props.onTaskChangeField(props.id, "completed",
                                                             !props.completed)}}
+                  title={props.completed ? "uncheck" : "check completed"}
+
         />
 }
 
