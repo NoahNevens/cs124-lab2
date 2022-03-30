@@ -1,6 +1,6 @@
 import Task from './Task';
 import "./TaskList.css";
-import CheckButton from "./CheckButton";
+import AddButton from "./AddButton";
 
 function TaskList(props) {
 
@@ -8,13 +8,12 @@ function TaskList(props) {
         <div className="tasks">
             {
                 props.data.map(task => <Task key={task.id} {...task}
-                                             isAdd={false}
                                              onTaskChangeField={props.onTaskChangeField}
                                              onItemDeleted={props.onItemDeleted}
                 />)
             }
         </div>
-        <CheckButton id="add_task" isAdd={true} onAddTask={props.onAddTask} />
+        <AddButton onAddTask={props.onAddTask} />
     </div>
 
 }

@@ -1,5 +1,5 @@
 import "./Task.css";
-import CheckButton from "./CheckButton";
+import CheckBox from "./CheckBox";
 import DueDate from "./DueDate";
 import PriorityButton from "./PriorityButton";
 
@@ -7,7 +7,7 @@ function Task(props) {
 
     return <div>
         <div className="task" id={props.id}>
-            <CheckButton
+            <CheckBox
                 id={props.id} value={props.value}
                 isAdd={false}
                 completed={props.completed}
