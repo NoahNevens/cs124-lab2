@@ -1,24 +1,5 @@
-.undoButton {
-    border: none;
-    outline: none;
-    margin-left: 10px;
-    border-radius: 5px;
-    height: 27.49px;
-    width: 27px;
-    color: black;
+.undo_button {
     font-size: 15pt;
+    color: black;
     font-weight: bold;
-    background-color: rgb(223, 227, 243);
-    cursor: pointer;
-}
-
-.undoButton:disabled {
-    cursor: auto;
-    opacity: 70%;
-}
-
-.undoButton:hover:not([disabled]),
-.undoButton:focus {
-    background-color: black;
-    color: white;
 }

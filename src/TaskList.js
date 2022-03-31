@@ -13,8 +13,8 @@ function TaskList(props) {
                 />)
             }
         </div>
-        <AddButton onAddTask={props.onAddTask} />
-    </div>
+        <AddButton onAddTask={props.onAddTask}/>
+    </div>;
 
 }
 

@@ -3,12 +3,13 @@ import Header from './Header.js';
 import TaskList from './TaskList.js';
 import BottomButtons from './BottomButtons.js';
 import SortButton from './SortButton.js';
+import AscendButton from "./AscendButton";
+import UndoButton from "./UndoButton";
 import {collection, doc, setDoc, deleteDoc, query, orderBy, serverTimestamp} from "firebase/firestore";
 import {useCollectionData} from "react-firebase-hooks/firestore";
 import {useState} from "react";
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
-import AscendButton from "./AscendButton";
-import UndoButton from "./UndoButton";
+
 
 function App(props) {
     const [hideCompleted, setHideCompleted] = useState(false);
@@ -87,18 +88,16 @@ function App(props) {
     return <div className="App">
         <div id="content">
             <Header/>
-            <div id="task_section">
-                <SortButton onChange={(e) => handleSortBy(e.target.value)}
-                            sortBy={sortBy} />
-                <AscendButton ascending={ascending}
-                              onClick={handleAscending}/>
-                <UndoButton justDeleted={justDeleted}
-                            onClick={handleUndoDelete} />
-                <TaskList data={hideCompleted ? uncompletedTasks : tasks}
-                          onTaskChangeField={handleChangeField}
-                          onAddTask={handleAddTask}
-                          onItemDeleted={handleItemDeleted} />
-            </div>
+            <SortButton onChange={(e) => handleSortBy(e.target.value)}
+                        sortBy={sortBy} />
+            <AscendButton ascending={ascending}
+                          onClick={handleAscending}/>
+            <UndoButton justDeleted={justDeleted}
+                        onClick={handleUndoDelete} />
+            <TaskList data={hideCompleted ? uncompletedTasks : tasks}
+                      onTaskChangeField={handleChangeField}
+                      onAddTask={handleAddTask}
+                      onItemDeleted={handleItemDeleted} />
         </div>
         {completedTasks.length >= 1 && <BottomButtons onToggleCompletedItems={() => handleToggleCompletedItems()}
                        onClearCompletedItems={() => handleClearCompleted()}

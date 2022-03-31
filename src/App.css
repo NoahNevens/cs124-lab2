@@ -10,3 +10,25 @@
   padding-left: 30px;
   padding-right: 30px;
 }
+
+.top_button {
+  border: none;
+  outline: none;
+  margin-left: 10px;
+  border-radius: 5px;
+  height: 27.49px;
+  width: 27px;
+  background-color: rgb(223, 227, 243);
+  cursor: pointer;
+}
+
+.top_button:hover:not([disabled]),
+.top_button:focus {
+  background-color: black;
+  color: white;
+}
+
+.top_button:disabled {
+  cursor: auto;
+  opacity: 70%;
+}
