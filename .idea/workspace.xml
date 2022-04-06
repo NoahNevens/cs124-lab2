@@ -5,17 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c1a342f-6557-42a2-baac-8c7c45430db0" name="Changes" comment="trying to make firestore thing compile pt 3">
-      <change afterPath="$PROJECT_DIR$/src/SelectionMaintainingInput.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TopButton.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AddButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/AddButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AscendButton.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/AscendButton.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AscendButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/AscendButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CheckBox.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/CheckBox.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DueDate.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/DueDate.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DueDate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DueDate.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Task.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Task.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TaskList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaskList.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TaskList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaskList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UndoButton.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/UndoButton.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UndoButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/UndoButton.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -159,6 +160,7 @@
       <workItem from="1646280195331" duration="1387000" />
       <workItem from="1646866669137" duration="2318000" />
       <workItem from="1647806065261" duration="2824000" />
+      <workItem from="1649276847970" duration="3513000" />
     </task>
     <task id="LOCAL-00001" summary="we got started!">
       <created>1645224283572</created>

@@ -1,4 +1,5 @@
 import "./AscendButton.css";
+import "./TopButton.css";
 
 function AscendButton(props) {
     const sortStr = "Currently sorting in " + (props.ascending ? "ascending" : "descending") + " order. " +

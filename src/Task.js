@@ -27,6 +27,7 @@ function Task(props) {
         <DueDate
             dueDate={props.dueDate}
             onChange={(e) => props.onTaskChangeField(props.id, "dueDate", e.target.value)}
+            isNarrow={props.isNarrow}
         />
         <PriorityButton priority={props.priority}
             onChange={(e) => props.onTaskChangeField(props.id, "priority", e.target.value)}

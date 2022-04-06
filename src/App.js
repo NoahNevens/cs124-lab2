@@ -5,13 +5,16 @@ import BottomButtons from './BottomButtons.js';
 import SortButton from './SortButton.js';
 import AscendButton from "./AscendButton";
 import UndoButton from "./UndoButton";
-import {collection, doc, setDoc, deleteDoc, query, orderBy, serverTimestamp} from "firebase/firestore";
+import {collection, doc, setDoc, updateDoc, deleteDoc, query, orderBy, serverTimestamp} from "firebase/firestore";
 import {useCollectionData} from "react-firebase-hooks/firestore";
 import {useState} from "react";
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
+import {useMediaQuery} from "react-responsive";
 
 
 function App(props) {
+    const isNarrow = useMediaQuery({maxWidth: 580});
+
     const [hideCompleted, setHideCompleted] = useState(false);
     const [sortBy, setSortBy] = useState("created");
     const [ascending, setAscending] = useState(true);
@@ -33,7 +36,7 @@ function App(props) {
     const completedTasks = tasks.filter(t => t.completed);
 
     function handleChangeField(taskId, field, value) {
-        setDoc(doc(props.db, collectionName, taskId), {[field]:value}, {merge:true});
+        updateDoc(doc(props.db, collectionName, taskId), {[field]:value});
     }
 
     function handleItemDeleted(taskId) {
@@ -97,7 +100,8 @@ function App(props) {
             <TaskList data={hideCompleted ? uncompletedTasks : tasks}
                       onTaskChangeField={handleChangeField}
                       onAddTask={handleAddTask}
-                      onItemDeleted={handleItemDeleted} />
+                      onItemDeleted={handleItemDeleted}
+                      isNarrow={isNarrow} />
         </div>
         {completedTasks.length >= 1 && <BottomButtons onToggleCompletedItems={() => handleToggleCompletedItems()}
                        onClearCompletedItems={() => handleClearCompleted()}

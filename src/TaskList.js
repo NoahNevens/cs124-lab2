@@ -10,6 +10,7 @@ function TaskList(props) {
                 props.data.map(task => <Task key={task.id} {...task}
                                              onTaskChangeField={props.onTaskChangeField}
                                              onItemDeleted={props.onItemDeleted}
+                                             isNarrow={props.isNarrow}
                 />)
             }
         </div>
