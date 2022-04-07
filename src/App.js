@@ -10,6 +10,7 @@ import {useCollectionData} from "react-firebase-hooks/firestore";
 import {useState} from "react";
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 import {useMediaQuery} from "react-responsive";
+import LoadingScreen from "./LoadingScreen";
 
 
 function App(props) {
@@ -26,7 +27,7 @@ function App(props) {
     const [tasks, loading, error] = useCollectionData(q);
 
     if (loading) {
-        return <div>Loading...</div>;
+        return <LoadingScreen />;
     }
     if(error) {
         return <div>Error! Uh oh</div>;
