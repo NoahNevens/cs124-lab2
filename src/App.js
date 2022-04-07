@@ -65,7 +65,7 @@ function App(props) {
             {id: newId,
                 value: taskValue,
                 completed: false,
-                priority: "high",
+                priority: "a",
                 created: serverTimestamp(),
                 dueDate: new Date()});
     }

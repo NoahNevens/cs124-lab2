@@ -19,12 +19,10 @@
 }
 
 .squishDate {
-    width: 20px;
+    width: 70px;
 }
 
-.squishDate > ::-webkit-datetime-edit-month-field,
-.squishDate > ::-webkit-datetime-edit-day-field,
-.squishDate > ::-webkit-datetime-edit-year-field,
-.squishDate > ::-webkit-datetime-edit-text {
+.squishDate > ::-webkit-datetime-edit-text,
+.squishDate > ::-webkit-datetime-edit-year-field {
     display: none;
 }

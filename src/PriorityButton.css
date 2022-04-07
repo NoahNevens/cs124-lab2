@@ -4,21 +4,20 @@
     border: none;
     font-family: 'Lora', sans-serif;
     cursor: pointer;
-    /*margin-right: 0.7%;*/
     width: 78px;
     height: 27.49px;
     outline: none;
 }
 
-.high {
+.a {
     background-color: #ff8484;
 }
 
-.med {
+.b {
     background-color: yellowgreen;
 }
 
-.low {
+.c {
     background-color: lightskyblue;
 }
 
@@ -27,17 +26,21 @@
     color: white;
 }
 
-.high:hover,
-.high:focus {
+.a:hover,
+.a:focus {
     background-color: #750202;
 }
 
-.med:hover,
-.med:focus {
+.b:hover,
+.b:focus {
     background-color: #43600e;
 }
 
-.low:hover,
-.low:focus {
+.c:hover,
+.c:focus {
     background-color: #1a94ea;
+}
+
+.psquished {
+    width: 45px;
 }

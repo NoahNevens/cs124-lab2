@@ -30,6 +30,7 @@ function Task(props) {
             isNarrow={props.isNarrow}
         />
         <PriorityButton priority={props.priority}
+                        isNarrow={props.isNarrow}
                         onChange={(e) => props.onTaskChangeField(props.id, "priority", e.target.value)}
         />
     </div>;
