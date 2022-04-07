@@ -1,13 +1,14 @@
-
 .top_button {
     border: none;
     outline: none;
-    margin-left: 10px;
-    border-radius: 5px;
-    height: 27.49px;
-    width: 27px;
     background-color: rgb(223, 227, 243);
+    width: 27px;
+    height: 27.49px;
+    margin-bottom: 15px;
+    border-radius: 5px;
     cursor: pointer;
+    margin-left: 10px;
+    vertical-align: top;
 }
 
 .top_button:hover:not([disabled]),

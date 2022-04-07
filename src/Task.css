@@ -11,6 +11,10 @@
     padding-inline-start: 8px;
 }
 
+.tsquished {
+    font-size: 90%;
+}
+
 input:focus {
     background-color: rgb(5, 35, 75);
 }
@@ -19,5 +23,5 @@ input:focus {
     display: flex;
     align-content: space-between;
     column-gap: 10pt;
-    height: 26px;
+    height: 27px;
 }

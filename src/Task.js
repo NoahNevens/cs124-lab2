@@ -14,7 +14,7 @@ function Task(props) {
             onTaskChangeField={props.onTaskChangeField}
         />
         <SelectionMaintainingInput
-            className="task_text"
+            className={"task_text" + (props.isNarrow ? " tsquished" : "") }
             onChange={
                 (e) =>
                     props.onTaskChangeField(props.id, "value", e.target.value)
