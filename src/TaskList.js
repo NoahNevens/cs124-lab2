@@ -13,6 +13,7 @@ function TaskList(props) {
                                              isNarrow={props.isNarrow}
                 />)
             }
+            <text></text>
         </div>
         <AddButton onAddTask={props.onAddTask}/>
     </div>;
