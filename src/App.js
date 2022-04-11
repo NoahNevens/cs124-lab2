@@ -1,113 +1,67 @@
 import './App.css';
 import Header from './Header.js';
 import TaskList from './TaskList.js';
-import BottomButtons from './BottomButtons.js';
-import SortButton from './SortButton.js';
-import AscendButton from "./AscendButton";
-import UndoButton from "./UndoButton";
-import {collection, doc, setDoc, updateDoc, deleteDoc, query, orderBy, serverTimestamp} from "firebase/firestore";
+import {collection, doc, setDoc, updateDoc, deleteDoc, query, serverTimestamp} from "firebase/firestore";
 import {useCollectionData} from "react-firebase-hooks/firestore";
 import {useState} from "react";
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 import {useMediaQuery} from "react-responsive";
 import LoadingScreen from "./LoadingScreen";
+import ListSelector from "./ListSelector.js";
 
 
 function App(props) {
     const isNarrow = useMediaQuery({maxWidth: 580});
 
-    const [hideCompleted, setHideCompleted] = useState(false);
-    const [sortBy, setSortBy] = useState("created");
-    const [ascending, setAscending] = useState(true);
-    const [justDeleted, setJustDeleted] = useState([]);
+    const collectionName = "task-lists";
+    const qList = query(collection(props.db, collectionName));
+    const [lists, listLoading, listError] = useCollectionData(qList);
+    const [currentListId, setCurrentListId] = useState("1234");
+    const [currentListName, setCurrentListName] = useState("task-list");
 
-    const order = ascending ? "asc" : "desc";
-    const collectionName = "task-list";
-    const q = query(collection(props.db, collectionName), orderBy(sortBy, order));
-    const [tasks, loading, error] = useCollectionData(q);
 
-    if (loading) {
+    if (listLoading) {
         return <LoadingScreen />;
     }
-    if(error) {
+    if (listError) {
         return <div>Error! Uh oh</div>;
     }
 
-    const uncompletedTasks = tasks.filter(t => !t.completed);
-    const completedTasks = tasks.filter(t => t.completed);
-
-    function handleChangeField(taskId, field, value) {
-        updateDoc(doc(props.db, collectionName, taskId), {[field]:value});
-    }
-
-    function handleItemDeleted(taskId) {
-        deleteDoc(doc(props.db, collectionName, taskId));
-    }
-
-    function handleClearCompleted() {
-        const toDelete = tasks.filter(task => task.completed);
-        for (const task of toDelete) {
-            handleItemDeleted(task.id);
-        }
-        setJustDeleted(toDelete);
-    }
-
-    function handleAddTask(taskValue) {
-        // not allowed to have more than 1 blank task at a time
-        for (const task of tasks) {
-            if (task.value === "") {
-                return;
-            }
-        }
-
+    function handleAddList(listName) {
         const newId = generateUniqueID();
         setDoc(doc(props.db, collectionName, newId),
             {id: newId,
-                value: taskValue,
-                completed: false,
-                priority: "a",
-                created: serverTimestamp(),
-                dueDate: new Date()});
+                name: listName,
+                created: serverTimestamp()});
     }
 
-    function handleUndoDelete() {
-        for (const task of justDeleted) {
-            setDoc(doc(props.db, collectionName, task.id), {...task})
-        }
-        setJustDeleted([]);
+    function handleDeleteList(listId) {
+        deleteDoc(doc(props.db, collectionName, listId));
     }
 
-    function handleToggleCompletedItems() {
-        setHideCompleted(!hideCompleted);
+    function handleSetList(listId) {
+        setCurrentListId(listId);
     }
 
-    function handleSortBy(sortType) {
-        setSortBy(sortType);
-    }
-
-    function handleAscending() {
-        setAscending(!ascending);
+    function handleSetName(listName) {
+        setCurrentListName(listName);
     }
 
     return <div className="App">
         <div id="content">
             <Header/>
-            <SortButton onChange={(e) => handleSortBy(e.target.value)}
-                        sortBy={sortBy} />
-            <AscendButton ascending={ascending}
-                          onClick={handleAscending}/>
-            <UndoButton justDeleted={justDeleted}
-                        onClick={handleUndoDelete} />
-            <TaskList data={hideCompleted ? uncompletedTasks : tasks}
-                      onTaskChangeField={handleChangeField}
-                      onAddTask={handleAddTask}
-                      onItemDeleted={handleItemDeleted}
-                      isNarrow={isNarrow} />
+            <ListSelector lists={lists}
+                          currentList={currentListName}
+                          onChange={(e) => {handleSetList()}}
+                          onAddList={handleAddList}/>
+            <TaskList db={props.db}
+                      mainCollection={collectionName}
+                      subId={currentListId}
+                      subName={currentListName}
+                      lists={lists}
+                      isNarrow={isNarrow}
+                      />
         </div>
-        {completedTasks.length >= 1 && <BottomButtons onToggleCompletedItems={() => handleToggleCompletedItems()}
-                                                      onClearCompletedItems={() => handleClearCompleted()}
-                                                      isHideCompleted={hideCompleted} />}
-
     </div>;
 }
 
