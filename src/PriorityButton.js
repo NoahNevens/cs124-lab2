@@ -1,13 +1,15 @@
 import "./PriorityButton.css";
 
 function PriorityButton(props) {
+    const cName = "priority "+ props.priority +
+                    (props.isNarrow ? " psquished" : "");
     return <>
         <select id={"prioritySelector"}
-                className={"priority "+ props.priority}
+                className={cName}
                 onChange={props.onChange} value={props.priority} >
-            <option value={"high"} aria-label={"high priority"}>high</option>
-            <option value={"med"} aria-label={"medium priority"}>med</option>
-            <option value={"low"} aria-label={"low priority"}>low</option>
+            <option value={"a"} aria-label={"high priority"}>{props.isNarrow ? "H" : "high"}</option>
+            <option value={"b"} aria-label={"medium priority"}>{props.isNarrow ? "M" : "med"}</option>
+            <option value={"c"} aria-label={"low priority"}>{props.isNarrow ? "L" : "low"}</option>
         </select>
     </>
 

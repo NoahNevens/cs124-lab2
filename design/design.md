@@ -54,7 +54,7 @@ Marcos also noted that it makes more sense for the "Show Only Uncomplete" button
 | <p> Before Show Only Uncomplete is toggled </p> | <p> After Show Only Uncomplete is toggled </p> |
 
 
-We asked another user, Anshul Kamath, to give feedback on our app. He noticed that it was possible to have several empty tasks at once and that this was kind of strange. After adding a new task, you should type something in that box before adding a new task. We made it so that if there is a blank new task, you cannot add another new task before text is added to the original new task. Furthermore, if your cursor is focused on a task and then you click off the task and the box is empty, then the task is deleted. The app assumes that if you backspace an entire task or add a task but don't type anything in it, then you want to delete it.
+We asked another user (and awful friend), Anshul Kamath, to give feedback on our app. He noticed that it was possible to have several empty tasks at once and that this was kind of strange. After adding a new task, you should type something in that box before adding a new task. We made it so that if there is a blank new task, you cannot add another new task before text is added to the original new task. Furthermore, if your cursor is focused on a task and then you click off the task and the box is empty, then the task is deleted. The app assumes that if you backspace an entire task or add a task but don't type anything in it, then you want to delete it.
 
 We also had a user tell us that it would be useful if there was some feedback for when you type in a text box. So we made the text box darker when you start typing in it. 
 
@@ -66,10 +66,6 @@ When the user tries to add more than 10 tasks, a message appears at the bottom o
 become cluttered with too many tasks. As a general life rule, if you have more than 10 tasks to complete, you should finish some of them before making new ones.
 </p>
 
-<p>One of the users we tested with mentioned that the task alert was difficult to see so we changed it to be orange and bold, which is a little easier. </p>
-
-<img src="/design/orangealert.png" alt="after alert was made orange" style="height: 400px" />
-
 <p>Additionally, we previously had bottom buttons that read "Show Only Uncomplete" and "Clear All Completed." We found that by decreasing that text to "Hide Completed"
 and "Clear Completed", it was easier to read and didn't have to wrap as much at smaller screen sizes. In the name of being even more practical, we made it so that the bottom
 buttons do not appear if no tasks are completed, since we noticed that there is no reason to have the bottom buttons otherwise.</p>
@@ -77,6 +73,30 @@ buttons do not appear if no tasks are completed, since we noticed that there is 
 <p>We had multiple users tell us that adding a due date would be a good idea because their favorite to-do list applications apparently include due date features. We found this to be 
 a good suggestion. </p>
 
-<img src="/design/duedate.png" alt="the due date design" style="height: 300px"/>
+<img src="/design/duedate.png" alt="Due date design features a date next to a small calendar icon" style="height: 300px"/>
 
-<p>Several users also liked the color coding of the priority levels. We used some of this input to choose the specific colors. </p>
+<hr>
+<h3>Lab 4 Design</h3>
+
+Our main concern with the due-date feature was how to accommodate the long dates on a narrower screen. We decided to save space by truncating the year. Daniela's mom also suggested that we abbreviate "high", "med", and "low" to just their first letters; the consistent color-coding would help users understand what these letters stand for.
+
+| <img src="/design/wide screen.png" alt="Wide screen shows normal date and 'med' priority" style="height: 200px" />  | <img src="/design/narrow screen.png" alt="Due date truncated and 'med' becomes 'M' on a narrow screen" style="height: 240px" /> |
+| --- | --- |
+| <p> Date and priority on a wide screen </p> | <p> Date and priority display on a narrow screen </p> |
+
+Next, we had to undergo a slight checkbox design change, as we had initially implemented our checkboxes using labels instead of actual checkboxes, but continuing to use labels would force us to implement all of the ARIA checkbox-specific functionality that is built-in to actual checkboxes. To help users who cannot use a mouse navigate our app using only the keyboard, we added shading for focused objects, like checkboxes. Thus our checkboxes now look like this:
+
+| <img src="/design/new check 1.png" alt="The new checkbox design features a green check on a white box" style="height: 150px" />  | <img src="/design/new check 2.png" alt="Gray shading on the second checkbox indicates focus" style="height: 150px" /> | <img src="/design/old check.png" alt="The old checkbox design features a green background and thinner white check" style="height: 150px" /> |
+| --- | --- | --- |
+| <p> The new checkbox design </p> | <p> The new focus indicator </p> | <p> The old checkbox design</p> |
+
+A final major change was the new loading screen. Before, "Loading..." just flashed on a white background. Now, you can see a navy blue arc rotate around a white circle, with a pretty blue background. 
+
+<img src="/design/loading screen.png" alt="The loading screen features a navy arc rotating around a white circle, with a light blue background" style="height: 500px"/>
+
+<hr>
+
+<h3> Navigation videos! </h3>
+
+[Keyboard only navigation](https://youtu.be/-PtDJdx3iHE)
+[Voiceover navigation](https://youtu.be/a7EcLSo8Kmo)

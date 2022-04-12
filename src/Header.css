@@ -1,11 +1,17 @@
 h1 {
-    font-size: 8vh;
+    font-size: 39pt;
     text-align: left;
     color: white;
     font-family: 'Open Sans Condensed', sans-serif;
     font-weight: bolder;
     text-transform: capitalize;
-    margin: 20px 0 20px;
+    margin: 20px 0 8px;
+}
+
+@media screen and (max-width: 280px) {
+    h1 {
+        font-size: 33.5pt;
+    }
 }
 
 .fa-calendar-check {

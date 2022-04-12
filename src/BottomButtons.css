@@ -4,9 +4,8 @@
     justify-content: center;
     column-gap: 18pt;
     position: absolute;
-    bottom: 8px;
+    bottom: 25px;
     width: 100%;
-    height: 11.5%;
 }
 
 .bottom_button_reg,
@@ -19,6 +18,8 @@
     transition-duration: 0.4s;
     cursor: pointer;
     height: 60%;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .bottom_button_reg {
@@ -31,20 +32,27 @@
     background: radial-gradient(rgb(0, 114, 185), rgb(0, 60, 255));
 }
 
-#show_uncomplete {
-    margin-left: 30px;
-}
-
 #clear_complete {
-    margin-right: 30px;
+    margin-right: 60px;
 }
 
-.bottom_button_reg:active {
+.bottom_button_reg:active,
+.bottom_button_reg:hover,
+.bottom_button_reg:focus
+{
     background: radial-gradient(rgb(0, 114, 185), rgb(0, 60, 255));
     color: white;
 }
 
-.bottom_button_new:active {
+.bottom_button_new:active,
+.bottom_button_new:hover
+{
     background: white;
     color: rgb(15, 116, 231);
+}
+
+.bottom_button_reg:focus,
+.bottom_button_new:focus
+{
+    background: darkblue;
 }
