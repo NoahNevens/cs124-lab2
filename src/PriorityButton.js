@@ -7,9 +7,9 @@ function PriorityButton(props) {
         <select id={"prioritySelector"}
                 className={cName}
                 onChange={props.onChange} value={props.priority} >
-            <option value={"a"}>{props.isNarrow ? "H" : "high"}</option>
-            <option value={"b"}>{props.isNarrow ? "M" : "med"}</option>
-            <option value={"c"}>{props.isNarrow ? "L" : "low"}</option>
+            <option value={"a"} aria-label={"high priority"}>{props.isNarrow ? "H" : "high"}</option>
+            <option value={"b"} aria-label={"medium priority"}>{props.isNarrow ? "M" : "med"}</option>
+            <option value={"c"} aria-label={"low priority"}>{props.isNarrow ? "L" : "low"}</option>
         </select>
     </>
 

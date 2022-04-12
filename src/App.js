@@ -63,7 +63,7 @@ function App(props) {
                     <i className="fa-solid fa-trash-can" s/>
                 </button>
             </div>
-            {currentListId != "noList" && <TaskList db={props.db}
+            {currentListId !== "noList" && <TaskList db={props.db}
                       mainCollection={collectionName}
                       subId={currentListId}
                       subName={currentListName}
