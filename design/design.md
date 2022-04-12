@@ -99,3 +99,4 @@ A final major change was the new loading screen. Before, "Loading..." just flash
 <h3> Navigation videos! </h3>
 
 [Keyboard only navigation](https://youtu.be/-PtDJdx3iHE)
+[Voiceover navigation](https://youtu.be/a7EcLSo8Kmo)
