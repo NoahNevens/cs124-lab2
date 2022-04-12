@@ -17,9 +17,11 @@ function AddListButton(props) {
     }
     return <>
         <button onClick={e => {handleSetListBox(true)}}
+                aria-label="add new list"
                 className="top_button" >+</button>
         {newListBox && <input id="name_list_field"
                               placeholder="Dan's list"
+                              aria-label="new list name: "
                               onChange={(e) => setListName(e.target.value)}
                               onKeyPress={handleKeyPress}/>}
     </>

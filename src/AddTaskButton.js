@@ -4,7 +4,8 @@ function AddTaskButton(props) {
 
     return <button className="add_button"
                    onClick={e => {props.onAddTask("", props.value)}}
-                   title={"add task"}>
+                   aria-label="add new task"
+                   title="add task" >
         +
     </button>;
 }

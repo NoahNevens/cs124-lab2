@@ -93,3 +93,9 @@ Next, we had to undergo a slight checkbox design change, as we had initially imp
 A final major change was the new loading screen. Before, "Loading..." just flashed on a white background. Now, you can see a navy blue arc rotate around a white circle, with a pretty blue background. 
 
 <img src="/design/loading screen.png" alt="The loading screen features a navy arc rotating around a white circle, with a light blue background" style="height: 500px"/>
+
+<hr>
+
+<h3> Navigation videos! </h3>
+
+[Keyboard only navigation](https://youtu.be/-PtDJdx3iHE)

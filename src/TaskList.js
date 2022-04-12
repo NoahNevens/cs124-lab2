@@ -8,14 +8,14 @@ import {deleteDoc, doc, serverTimestamp, setDoc, updateDoc, query, collection, o
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 import SortButton from "./SortButton";
 import AscendButton from "./AscendButton";
-import UndoButton from "./UndoButton";
+import UndoButtonTask from "./UndoButtonTask";
 import BottomButtons from "./BottomButtons";
 
 function TaskList(props) {
     const [hideCompleted, setHideCompleted] = useState(false);
     const [sortBy, setSortBy] = useState("created");
     const [ascending, setAscending] = useState(true);
-    const [justDeleted, setJustDeleted] = useState([]);
+    const [justDeletedTasks, setJustDeletedTasks] = useState([]);
 
     const order = ascending ? "asc" : "desc";
     const q = query(collection(props.db, props.mainCollection, props.subId, props.subName), orderBy(sortBy, order));
@@ -45,7 +45,7 @@ function TaskList(props) {
         for (const task of toDelete) {
             handleItemDeleted(task.id);
         }
-        setJustDeleted(toDelete);
+        setJustDeletedTasks(toDelete);
     }
 
     function handleAddTask(taskValue) {
@@ -66,11 +66,11 @@ function TaskList(props) {
                 dueDate: new Date()});
     }
 
-    function handleUndoDelete() {
-        for (const task of justDeleted) {
+    function handleUndoDeleteTasks() {
+        for (const task of justDeletedTasks) {
             setDoc(doc(props.db, props.mainCollection, props.subId, props.subName, task.id), {...task})
         }
-        setJustDeleted([]);
+        setJustDeletedTasks([]);
     }
 
     function handleToggleCompletedItems() {
@@ -91,8 +91,8 @@ function TaskList(props) {
                         sortBy={sortBy} />
             <AscendButton ascending={ascending}
                           onClick={handleAscending}/>
-            <UndoButton justDeleted={justDeleted}
-                        onClick={handleUndoDelete} />
+            <UndoButtonTask justDeleted={justDeletedTasks}
+                            onClick={handleUndoDeleteTasks} />
         </div>
         <div className="task_list">
             <div className="tasks">
