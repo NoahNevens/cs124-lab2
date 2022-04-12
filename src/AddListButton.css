@@ -1,0 +1,17 @@
+
+#name_list_field {
+    border: none;
+    outline: none;
+    color: white;
+    margin-left: 8pt;
+    height: 26px;
+    width: 90px;
+    border-radius: 5px;
+    padding-inline-start: 8px;
+}
+
+@media screen and (max-width: 350px) {
+    #name_list_field {
+        width: 40px;
+    }
+}

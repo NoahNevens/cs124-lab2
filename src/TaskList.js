@@ -1,6 +1,6 @@
 import Task from './Task';
 import "./TaskList.css";
-import AddButton from "./AddButton";
+import AddTaskButton from "./AddTaskButton";
 import {useState} from "react";
 import {useCollectionData} from "react-firebase-hooks/firestore";
 import LoadingScreen from "./LoadingScreen";
@@ -86,27 +86,30 @@ function TaskList(props) {
     }
 
     return <div>
-        <SortButton onChange={(e) => handleSortBy(e.target.value)}
-                               sortBy={sortBy} />
-        <AscendButton ascending={ascending}
-                        onClick={handleAscending}/>
-        <UndoButton justDeleted={justDeleted}
+        <div id="sort_top_buttons">
+            <SortButton onChange={(e) => handleSortBy(e.target.value)}
+                        sortBy={sortBy} />
+            <AscendButton ascending={ascending}
+                          onClick={handleAscending}/>
+            <UndoButton justDeleted={justDeleted}
                         onClick={handleUndoDelete} />
-    <div className="task_list">
-        <div className="tasks">
-            {
-                data.map(task => <Task key={task.id} {...task}
-                                             onTaskChangeField={handleChangeField}
-                                             onItemDeleted={handleItemDeleted}
-                                             isNarrow={props.isNarrow}
-                />)
-            }
-            <text/>
         </div>
-        <AddButton onAddTask={handleAddTask}/>
-        {completedTasks.length >= 1 && <BottomButtons onToggleCompletedItems={() => handleToggleCompletedItems()}
-                                                      onClearCompletedItems={() => handleClearCompleted()}
-                                                      isHideCompleted={hideCompleted} />}
+        <div className="task_list">
+            <div className="tasks">
+                {
+                    data.map(task => <Task key={task.id} {...task}
+                                                 onTaskChangeField={handleChangeField}
+                                                 onItemDeleted={handleItemDeleted}
+                                                 isNarrow={props.isNarrow}
+                    />)
+                }
+                <text/>
+            </div>
+            <AddTaskButton onAddTask={handleAddTask}/>
+            {completedTasks.length >= 1 && <BottomButtons onToggleCompletedItems={() => handleToggleCompletedItems()}
+                                                          onClearCompletedItems={() => handleClearCompleted()}
+                                                          isHideCompleted={hideCompleted} />}
+
         </div>
     </div>;
 

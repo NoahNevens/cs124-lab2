@@ -1,6 +1,6 @@
-import "./AddButton.css";
+import "./AddTaskButton.css";
 
-function AddButton(props) {
+function AddTaskButton(props) {
 
     return <button className="add_button"
                    onClick={e => {props.onAddTask("", props.value)}}
@@ -9,4 +9,4 @@ function AddButton(props) {
     </button>;
 }
 
-export default AddButton;
+export default AddTaskButton;

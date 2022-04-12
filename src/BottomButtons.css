@@ -32,12 +32,8 @@
     background: radial-gradient(rgb(0, 114, 185), rgb(0, 60, 255));
 }
 
-#show_uncomplete {
-    margin-left: 30px;
-}
-
 #clear_complete {
-    margin-right: 30px;
+    margin-right: 60px;
 }
 
 .bottom_button_reg:active,

@@ -1,7 +1,8 @@
 .task_list {
+    max-height: 100vh;
     display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-gap:  8pt;
+    grid-template-rows: 1fr 37pt 190pt;
+    grid-gap: 8pt;
 }
 
 .tasks {
@@ -12,4 +13,8 @@
 
     overflow-y: auto;
     max-height: 55vh;
+}
+
+#sort_top_buttons {
+    margin-bottom: 15px;
 }

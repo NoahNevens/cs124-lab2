@@ -1,7 +1,7 @@
-import "./AddList.js";
+import "./AddListButton.css";
 import {useState} from "react";
 
-function AddList(props) {
+function AddListButton(props) {
     const [newListBox, setNewListBox] = useState(false);
     const [listName, setListName] = useState("");
 
@@ -15,12 +15,14 @@ function AddList(props) {
             setNewListBox(false);
         }
     }
-
     return <>
-        <button onClick={e => {handleSetListBox(true)}}>+</button>
-        {newListBox && <input onChange={(e) => setListName(e.target.value)}
+        <button onClick={e => {handleSetListBox(true)}}
+                className="top_button" >+</button>
+        {newListBox && <input id="name_list_field"
+                              placeholder="Dan's list"
+                              onChange={(e) => setListName(e.target.value)}
                               onKeyPress={handleKeyPress}/>}
     </>
 }
 
-export default AddList;
+export default AddListButton;
