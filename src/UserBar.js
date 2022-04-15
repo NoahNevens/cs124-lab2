@@ -5,12 +5,14 @@ function getFirstName(name) {
 }
 
 function UserBar(props) {
-    console.log("narrow", props.isNarrow);
-    const displayName = props.isNarrow ? getFirstName(props.user.displayName)
-                                                        : props.user.displayName ;
+    console.log(props.user.displayName === null);
+    const displayName =
+        props.user.displayName !== null ? (props.isNarrow ? getFirstName(props.user.displayName)
+                                                        : props.user.displayName)
+            : props.user.email;
     return <div className="userBar">
         Hello, {displayName}.
-        <button role={"button"} onClick={props.onClick}
+        <button onClick={props.onClick}
                 id="sign_out_button">Sign out.</button>
     </div>;
 }

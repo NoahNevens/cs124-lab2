@@ -10,31 +10,9 @@ import TaskList from "./TaskList";
 import "./SignedInApp.css";
 import UserBar from "./UserBar.js";
 import {signOut} from "firebase/auth";
-
-function SharePopup(props) {
-    const [email, setEmail] = useState("");
-
-    return <>
-        <div className="overlay">
-        </div>
-        <div className="popup_box">
-            <h1 className="popup_header">Share list</h1>
-            <span id="share_instructions">Enter a friend's email below to give read and write access.
-                Email must belong to a valid user. </span>
-            <button id="xbutton" onClick={() => props.onSharePage(false)}>x</button>
-            <label htmlFor='email'>Email: </label>
-            <input type="text" id='email' className="email_field" value={email}
-                   onChange={e=>setEmail(e.target.value)}/>
-            <button className="popup_enter_button"
-                    onClick={() => console.log("share")}>
-                Share
-            </button>
-        </div>
-    </>
-}
+import SharePopup from "./SharePopup";
 
 function SignedInApp(props) {
-    const isNarrow = useMediaQuery({maxWidth: 580});
 
     const collectionName = "task-lists";
     const qList = query(collection(props.db, collectionName),
@@ -80,7 +58,7 @@ function SignedInApp(props) {
 
     return <div className="SignedInApp">
         <div id="content">
-            <UserBar user={props.user} isNarrow={isNarrow}
+            <UserBar user={props.user} isNarrow={props.isNarrow}
                      onClick={() => signOut(props.auth)} />
             <Header/>
             <div id="list_top_buttons">
@@ -107,7 +85,7 @@ function SignedInApp(props) {
                                                      subId={currentListId}
                                                      subName={currentListName}
                                                      lists={lists}
-                                                     isNarrow={isNarrow} />}
+                                                     isNarrow={props.isNarrow} />}
         </div>
         {sharePage && <SharePopup onSharePage={handleSetSharePage} />}
     </div>;

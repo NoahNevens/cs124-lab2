@@ -29,7 +29,8 @@
 }
 
 .fa-user-circle {
-    font-size: 120px;
+    font-size: 18vh;
+    margin-bottom: -10px;
 }
 
 .fa-google {
@@ -103,6 +104,7 @@
     color: red;
 }
 
+.name_field:focus,
 .email_field:focus,
 .pw_field:focus {
     background-color: rgb(173, 202, 230);
@@ -135,4 +137,14 @@
     outline: none;
     font-size: 30px;
     cursor: pointer;
+}
+
+@media screen and (max-width: 800px) and (max-height: 400px) {
+    #signin_buttons {
+        row-gap: 5px;
+    }
+    #login_logo {
+        margin-top: -10px;
+    }
+
 }
