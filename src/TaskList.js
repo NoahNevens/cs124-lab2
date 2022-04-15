@@ -22,7 +22,7 @@ function TaskList(props) {
     const [tasks, loading, error] = useCollectionData(q);
 
     if (loading) {
-        return <LoadingScreen />;
+        return <LoadingScreen message="Loading..."/>;
     }
     if (error) {
         return <div>Error! Uh oh</div>;

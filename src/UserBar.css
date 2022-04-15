@@ -1,0 +1,25 @@
+.userBar {
+    color: white;
+    font-size: 15px;
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 8px;
+    margin-bottom: -8px;
+}
+
+#sign_out_button {
+    text-decoration: underline;
+    outline: none;
+    font-size: 15px;
+    color: white;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+#sign_out_button:hover,
+#sign_out_button:focus
+{
+    color: black;
+}
+

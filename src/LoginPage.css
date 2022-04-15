@@ -22,7 +22,7 @@
     padding-top: 20px;
 }
 
-#login_buttons {
+#signin_buttons {
     display: flex;
     flex-direction: column;
     row-gap: 8px;
@@ -36,7 +36,8 @@
     padding-left: 2px;
 }
 
-.login_button {
+.signin_button,
+.signup_button {
     margin-left: 40pt;
     margin-right: 40pt;
     height: 30pt;
@@ -44,12 +45,15 @@
     border: none;
     outline: none;
     cursor: pointer;
+    background: white;
 }
 
-.login_button:hover,
-.login_button:focus {
-    background: lightgray;
-    outline: 2px solid #082a69;
+.signin_button:hover,
+.signin_button:focus,
+.signup_button:hover,
+.signup_button:focus {
+    background: #082a69;
+    color: white;
 }
 
 .overlay {
@@ -69,23 +73,66 @@
     justify-items: center;
 }
 
-#signInBox {
+.popup_box {
     background-color: white;
     width: 50%;
-    height: 350px;
+    padding-bottom: 20px;
     color: #082a69;
-    justify-content: center;
-    text-align: center;
+    justify-content: left;
     opacity: 1;
     border-radius: 3vw;
-    padding: 3px;
+    padding-left: 20px;
+    padding-right: 20px;
     position: absolute;
     left: 25%;
     top: 25%;
     align-content: center;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 2px;
 }
 
-#enterCreds {
+.popup_header {
     color: #082a69;
-    font-size: 200%;
+    font-size: 30px;
+}
+
+.error_msg {
+    margin-top: -2px;
+    color: red;
+}
+
+.email_field:focus,
+.pw_field:focus {
+    background-color: rgb(173, 202, 230);
+}
+
+.popup_enter_button {
+    margin-top: 15px;
+    padding: 8px;
+    font-size: 14px;
+    color: rgb(5, 35, 75);
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.popup_enter_button:hover,
+#xbutton:hover {
+    background: rgb(5, 35, 75);
+    color: white;
+}
+
+#xbutton {
+    position:absolute;
+    top: 0;
+    right: 0;
+    color: rgb(5, 35, 75);
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+    outline: none;
+    font-size: 30px;
+    cursor: pointer;
 }

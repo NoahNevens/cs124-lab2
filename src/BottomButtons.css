@@ -4,7 +4,7 @@
     justify-content: center;
     column-gap: 18pt;
     position: absolute;
-    bottom: 25px;
+    bottom: 15px;
     width: 100%;
 }
 
@@ -55,4 +55,20 @@
 .bottom_button_new:focus
 {
     background: darkblue;
+}
+
+@media screen and (max-width: 300px) {
+    .buttons {
+        column-gap: 10px;
+    }
+    #clear_complete {
+        margin-right: 50px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .bottom_button_new,
+    .bottom_button_reg {
+        font-size: 80%;
+    }
 }

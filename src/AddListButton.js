@@ -18,7 +18,8 @@ function AddListButton(props) {
     return <>
         <button onClick={e => {handleSetListBox(true)}}
                 aria-label="add new list"
-                className="top_button" >+</button>
+                title="add list"
+                className="top_button" ><i className="fa-solid fa-plus"/></button>
         {newListBox && <input id="name_list_field"
                               placeholder="Dan's list"
                               aria-label="new list name: "

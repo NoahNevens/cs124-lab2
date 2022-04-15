@@ -8,6 +8,30 @@ import Header from "./Header";
 import ListSelector from "./ListSelector";
 import TaskList from "./TaskList";
 import "./SignedInApp.css";
+import UserBar from "./UserBar.js";
+import {signOut} from "firebase/auth";
+
+function SharePopup(props) {
+    const [email, setEmail] = useState("");
+
+    return <>
+        <div className="overlay">
+        </div>
+        <div className="popup_box">
+            <h1 className="popup_header">Share list</h1>
+            <span id="share_instructions">Enter a friend's email below to give read and write access.
+                Email must belong to a valid user. </span>
+            <button id="xbutton" onClick={() => props.onSharePage(false)}>x</button>
+            <label htmlFor='email'>Email: </label>
+            <input type="text" id='email' className="email_field" value={email}
+                   onChange={e=>setEmail(e.target.value)}/>
+            <button className="popup_enter_button"
+                    onClick={() => console.log("share")}>
+                Share
+            </button>
+        </div>
+    </>
+}
 
 function SignedInApp(props) {
     const isNarrow = useMediaQuery({maxWidth: 580});
@@ -20,8 +44,10 @@ function SignedInApp(props) {
     const [currentListId, setCurrentListId] = useState("noList");
     const [currentListName, setCurrentListName] = useState("task-list");
 
+    const [sharePage, setSharePage] = useState(false);
+
     if (listLoading) {
-        return <LoadingScreen />;
+        return <LoadingScreen message="Loading..."/>;
     }
     if (listError) {
         return <div>Error! Uh oh</div>;
@@ -48,8 +74,14 @@ function SignedInApp(props) {
         setCurrentListId(listId);
     }
 
+    function handleSetSharePage(bool) {
+        setSharePage(bool);
+    }
+
     return <div className="SignedInApp">
         <div id="content">
+            <UserBar user={props.user} isNarrow={isNarrow}
+                     onClick={() => signOut(props.auth)} />
             <Header/>
             <div id="list_top_buttons">
                 <ListSelector lists={lists}
@@ -58,7 +90,13 @@ function SignedInApp(props) {
                               onChange={(e) => {handleSetList(e.target.value)}}
                               onAddList={handleAddList} />
                 <button className="top_button"
-                        disabled={lists.length <= 1}
+                        title="share list"
+                        aria-label="share list"
+                        onClick={() => handleSetSharePage(true)}>
+                    <i className="fa-solid fa-user-group" />
+                </button>
+                <button className="top_button"
+                        title="delete list"
                         aria-label="delete current list"
                         onClick={(e) => {handleDeleteList(currentListId)}} >
                     <i className="fa-solid fa-trash-can" s/>
@@ -71,6 +109,7 @@ function SignedInApp(props) {
                                                      lists={lists}
                                                      isNarrow={isNarrow} />}
         </div>
+        {sharePage && <SharePopup onSharePage={handleSetSharePage} />}
     </div>;
 }
 
