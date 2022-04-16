@@ -12,18 +12,19 @@ function App(props) {
 
     function verifyEmail() {
         sendEmailVerification(user);
+        window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
     }
 
     if (loading) {
         return <LoadingScreen message="Loading..." />;
     } else if (user) {
         return <>
-            {!user.emailVerified && <div id="verification_msg">
-                Note: your email is not yet verified!
-                <button type="button" id="verification_button"
-                               onClick={verifyEmail}>Send verification.</button>
-            </div> }
-            <SignedInApp {...props} user={user} auth={props.auth}
+            {/*{!user.emailVerified && <div id="verification_msg">*/}
+            {/*    Note: your email is not yet verified!*/}
+            {/*    <button type="button" id="verification_button"*/}
+            {/*                   onClick={verifyEmail}>Send verification.</button>*/}
+            {/*</div> }*/}
+            <SignedInApp {...props} user={user}
                          isNarrow={isNarrow} />
         </>;
     } else {

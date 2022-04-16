@@ -8,7 +8,7 @@ function SharePopup(props) {
         </div>
         <div className="popup_box">
             <h1 className="popup_header">Share list</h1>
-            <span id="share_instructions">Enter a friend's email below to give read and write access.
+            <span id="popup_instructions">Enter a friend's email below to give read and write access.
                 Email must belong to a valid user. </span>
             <button id="xbutton" onClick={() => props.onSharePage(false)}>x</button>
             <label htmlFor='email'>Email: </label>

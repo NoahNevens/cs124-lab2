@@ -11,6 +11,8 @@ import "./SignedInApp.css";
 import UserBar from "./UserBar.js";
 import {signOut} from "firebase/auth";
 import SharePopup from "./SharePopup";
+import DeletePopup from "./DeletePopup";
+import SettingsPopup from "./SettingsPopup";
 
 function SignedInApp(props) {
 
@@ -23,6 +25,9 @@ function SignedInApp(props) {
     const [currentListName, setCurrentListName] = useState("task-list");
 
     const [sharePage, setSharePage] = useState(false);
+    const [settingsPopup, setSettingsPopup] = useState(false);
+
+    const [deleteConfirmPage, setDeleteConfirmPage] = useState(false);
 
     if (listLoading) {
         return <LoadingScreen message="Loading..."/>;
@@ -56,10 +61,20 @@ function SignedInApp(props) {
         setSharePage(bool);
     }
 
+    function handleSetDeleteConfirmPage(bool) {
+        setDeleteConfirmPage(bool);
+    }
+
+    function handleSetSettingsPopup(bool) {
+        setSettingsPopup(bool);
+    }
+
     return <div className="SignedInApp">
         <div id="content">
             <UserBar user={props.user} isNarrow={props.isNarrow}
-                     onClick={() => signOut(props.auth)} />
+                     auth={props.auth}
+                     setSettingsPopup={handleSetSettingsPopup}
+                     onSignOut={() => signOut(props.auth)} />
             <Header/>
             <div id="list_top_buttons">
                 <ListSelector lists={lists}
@@ -76,8 +91,9 @@ function SignedInApp(props) {
                 <button className="top_button"
                         title="delete list"
                         aria-label="delete current list"
-                        onClick={(e) => {handleDeleteList(currentListId)}} >
-                    <i className="fa-solid fa-trash-can" s/>
+                        disabled={currentListId==="noList"}
+                        onClick={(e) => {handleSetDeleteConfirmPage(true)}} >
+                    <i className="fa-solid fa-trash-can" />
                 </button>
             </div>
             {currentListId !== "noList" && <TaskList db={props.db}
@@ -88,6 +104,11 @@ function SignedInApp(props) {
                                                      isNarrow={props.isNarrow} />}
         </div>
         {sharePage && <SharePopup onSharePage={handleSetSharePage} />}
+        {deleteConfirmPage && <DeletePopup onDeleteConfirm={handleSetDeleteConfirmPage}
+                                           listname={currentListName}
+                                           listid={currentListId}
+                                           handleDeleteList={handleDeleteList}/>}
+        {settingsPopup && <SettingsPopup auth={props.auth} onSettingsPopup={handleSetSettingsPopup} />}
     </div>;
 }
 
