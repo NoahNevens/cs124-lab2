@@ -25,6 +25,7 @@ function TaskList(props) {
         return <LoadingScreen message="Loading..."/>;
     }
     if (error) {
+        console.log(error);
         return <div>Error! Uh oh</div>;
     }
 

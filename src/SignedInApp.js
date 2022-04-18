@@ -1,5 +1,4 @@
-import {useMediaQuery} from "react-responsive";
-import {collection, deleteDoc, doc, query, serverTimestamp, setDoc, where} from "firebase/firestore";
+import {collection, deleteDoc, doc, getDoc, query, serverTimestamp, setDoc, updateDoc, where} from "firebase/firestore";
 import {useCollectionData} from "react-firebase-hooks/firestore";
 import {useState} from "react";
 import LoadingScreen from "./LoadingScreen";
@@ -33,6 +32,7 @@ function SignedInApp(props) {
         return <LoadingScreen message="Loading..."/>;
     }
     if (listError) {
+        console.log(listError);
         return <div>Error! Uh oh</div>;
     }
 
@@ -42,7 +42,9 @@ function SignedInApp(props) {
             {id: newId,
                 name: listName,
                 created: serverTimestamp(),
-                owner: props.user.uid});
+                owner: props.user.uid,
+                sharedWith: []
+            });
         setCurrentListId(newId);
         setCurrentListName(listName);
     }
@@ -55,6 +57,15 @@ function SignedInApp(props) {
 
     function handleSetList(listId) {
         setCurrentListId(listId);
+    }
+
+    async function handleShareList(listId, friendEmail) {
+        const docRef = doc(props.db, collectionName, listId)
+        const docSnap = await getDoc(docRef);
+        const friends = docSnap.data().friends;
+        // console.log(friends);
+        updateDoc(docRef,
+            {sharedWith: friends.concat([friendEmail])})
     }
 
     function handleSetSharePage(bool) {
@@ -103,7 +114,8 @@ function SignedInApp(props) {
                                                      lists={lists}
                                                      isNarrow={props.isNarrow} />}
         </div>
-        {sharePage && <SharePopup onSharePage={handleSetSharePage} />}
+        {sharePage && <SharePopup onSharePage={handleSetSharePage} handleShareList={handleShareList}
+                                  listId={currentListId} />}
         {deleteConfirmPage && <DeletePopup onDeleteConfirm={handleSetDeleteConfirmPage}
                                            listname={currentListName}
                                            listid={currentListId}

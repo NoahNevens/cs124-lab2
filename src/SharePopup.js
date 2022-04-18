@@ -3,6 +3,11 @@ import {useState} from "react";
 function SharePopup(props) {
     const [email, setEmail] = useState("");
 
+    function share() {
+        props.handleShareList(props.listId, email);
+        props.onSharePage(false);
+    }
+
     return <>
         <div className="overlay">
         </div>
@@ -14,8 +19,7 @@ function SharePopup(props) {
             <label htmlFor='email'>Email: </label>
             <input type="text" id='email' className="email_field" value={email}
                    onChange={e=>setEmail(e.target.value)}/>
-            <button className="popup_enter_button"
-                    onClick={() => console.log("share")}>
+            <button className="popup_enter_button" onClick={() => share()}>
                 Share
             </button>
         </div>
