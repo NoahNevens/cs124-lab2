@@ -19,11 +19,11 @@ function App(props) {
         return <LoadingScreen message="Loading..." />;
     } else if (user) {
         return <>
-            {/*{!user.emailVerified && <div id="verification_msg">*/}
-            {/*    Note: your email is not yet verified!*/}
-            {/*    <button type="button" id="verification_button"*/}
-            {/*                   onClick={verifyEmail}>Send verification.</button>*/}
-            {/*</div> }*/}
+            {!user.emailVerified && <div id="verification_msg">
+                Your email is not yet verified!
+                <button type="button" id="verification_button"
+                               onClick={verifyEmail}>Send verification.</button>
+            </div> }
             <SignedInApp {...props} user={user}
                          isNarrow={isNarrow} />
         </>;
