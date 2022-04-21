@@ -1,11 +1,18 @@
-.buttons {
+.buttons_reg, .buttons_vm {
     display: flex;
     align-items: center;
     justify-content: center;
     column-gap: 18pt;
     position: absolute;
-    bottom: 35px;
     width: 100%;
+}
+
+.buttons_reg {
+    bottom: 15px;
+}
+
+.buttons_vm {
+    bottom: 35px;
 }
 
 .bottom_button_reg,
@@ -17,9 +24,9 @@
     outline: none;
     transition-duration: 0.4s;
     cursor: pointer;
-    height: 60%;
     padding-top: 10px;
     padding-bottom: 10px;
+    height: 60%;
 }
 
 .bottom_button_reg {
@@ -58,13 +65,14 @@
 }
 
 @media screen and (max-width: 300px) {
-    .buttons {
+    .buttons_reg, .buttons_vm {
         column-gap: 10px;
     }
     #clear_complete {
         margin-right: 50px;
     }
 }
+
 
 @media screen and (max-width: 400px) {
     .bottom_button_new,

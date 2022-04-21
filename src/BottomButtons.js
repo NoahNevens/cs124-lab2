@@ -2,7 +2,8 @@ import "./BottomButtons.css";
 
 function BottomButtons(props) {
 
-    return <div className="buttons">
+
+    return <div className={props.emailVerified? "buttons_reg" : "buttons_vm"}>
         <button type="radio"
                 className={props.isHideCompleted ? "bottom_button_new" : "bottom_button_reg"}
                 id="show_uncomplete"

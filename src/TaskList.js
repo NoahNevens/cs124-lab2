@@ -110,7 +110,8 @@ function TaskList(props) {
             <AddTaskButton onAddTask={handleAddTask}/>
             {completedTasks.length >= 1 && <BottomButtons onToggleCompletedItems={() => handleToggleCompletedItems()}
                                                           onClearCompletedItems={() => handleClearCompleted()}
-                                                          isHideCompleted={hideCompleted} />}
+                                                          isHideCompleted={hideCompleted}
+                                                          emailVerified={props.emailVerified} />}
 
         </div>
     </div>;

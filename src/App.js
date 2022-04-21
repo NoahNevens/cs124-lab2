@@ -15,14 +15,17 @@ function App(props) {
         window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
     }
 
+    const verificationMsg = isNarrow? <button type="button" id="verification_button"
+                                              onClick={verifyEmail}>Verify email.</button> :
+        <> Your email is not yet verified! <button type="button" id="verification_button"
+    onClick={verifyEmail}>Send verification.</button> </>
+
     if (loading) {
         return <LoadingScreen message="Loading..." />;
     } else if (user) {
         return <>
             {!user.emailVerified && <div id="verification_msg">
-                Your email is not yet verified!
-                <button type="button" id="verification_button"
-                               onClick={verifyEmail}>Send verification.</button>
+                {verificationMsg}
             </div> }
             <SignedInApp {...props} user={user}
                          isNarrow={isNarrow} />

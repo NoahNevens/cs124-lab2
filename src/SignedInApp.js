@@ -1,4 +1,5 @@
-import {collection, deleteDoc, doc, getDoc, query, serverTimestamp, setDoc, updateDoc, where} from "firebase/firestore";
+
+import {collection, deleteDoc, doc, query, serverTimestamp, setDoc, updateDoc, where} from "firebase/firestore";
 import {useCollectionData} from "react-firebase-hooks/firestore";
 import {useState} from "react";
 import LoadingScreen from "./LoadingScreen";
@@ -51,6 +52,8 @@ function SignedInApp(props) {
     }
 
     function handleDeleteList(listId) {
+        //ran out of time to do delete tasks
+        //use forEach on the current list to delete all tasks in list
         deleteDoc(doc(props.db, collectionName, listId));
         setCurrentListId("noList");
         setCurrentListName("task-list");
@@ -62,7 +65,7 @@ function SignedInApp(props) {
 
     function handleShareList(friendEmail) {
         updateDoc(doc(props.db, collectionName, currentListId),
-                    {sharedWith: currentList.sharedWith.concat([friendEmail])})
+            {sharedWith: currentList.sharedWith.concat([friendEmail])})
         console.log('shared')
         // ARRAY UNION INSTEAD OF CONCAT
     }
@@ -85,7 +88,7 @@ function SignedInApp(props) {
                      auth={props.auth}
                      setSettingsPopup={handleSetSettingsPopup}
                      onSignOut={() => signOut(props.auth)} />
-            <Header/>
+            <Header emailVerified={props.user.emailVerified} />
             <div id="list_top_buttons">
                 <ListSelector lists={lists}
                               currentListId={currentListId}
@@ -112,10 +115,11 @@ function SignedInApp(props) {
                                                      subId={currentListId}
                                                      subName={currentListName}
                                                      lists={lists}
-                                                     isNarrow={props.isNarrow} />}
+                                                     isNarrow={props.isNarrow}
+                                                     emailVerified={props.user.emailVerified} />}
         </div>
         {sharePage && <SharePopup onSharePage={handleSetSharePage} handleShareList={handleShareList}
-                                  sharedWith={['1']} listId={currentListId} />}
+                                  sharedWith={['1']} listId={currentListId} list={currentList}/>}
         {deleteConfirmPage && <DeletePopup onDeleteConfirm={handleSetDeleteConfirmPage}
                                            listname={currentListName}
                                            listid={currentListId}
