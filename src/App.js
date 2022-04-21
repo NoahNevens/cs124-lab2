@@ -8,6 +8,7 @@ import {useMediaQuery} from "react-responsive";
 
 function App(props) {
     const isNarrow = useMediaQuery({maxWidth: 580});
+    const isRlyNarrow = useMediaQuery({maxWidth: 400});
     const [user, loading, error] = useAuthState(props.auth);
 
     function verifyEmail() {
@@ -15,7 +16,7 @@ function App(props) {
         window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
     }
 
-    const verificationMsg = isNarrow? <button type="button" id="verification_button"
+    const verificationMsg = isRlyNarrow? <button type="button" id="verification_button"
                                               onClick={verifyEmail}>Verify email.</button> :
         <> Your email is not yet verified! <button type="button" id="verification_button"
     onClick={verifyEmail}>Send verification.</button> </>
