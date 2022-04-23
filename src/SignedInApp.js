@@ -70,6 +70,12 @@ function SignedInApp(props) {
         // ARRAY UNION INSTEAD OF CONCAT
     }
 
+    function handleUnshareList(friendEmail) {
+        updateDoc(doc(props.db, collectionName, currentListId),
+            {sharedWith: currentList.sharedWith.filter(email => email !== friendEmail) })
+        console.log('unshared eeee')
+    }
+
     function handleSetSharePage(bool) {
         setSharePage(bool);
     }
@@ -119,7 +125,8 @@ function SignedInApp(props) {
                                                      emailVerified={props.user.emailVerified} />}
         </div>
         {sharePage && <SharePopup onSharePage={handleSetSharePage} handleShareList={handleShareList}
-                                  sharedWith={['1']} listId={currentListId} list={currentList}/>}
+                                  handleUnshareList={handleUnshareList}
+                                  user={props.user} list={currentList}/>}
         {deleteConfirmPage && <DeletePopup onDeleteConfirm={handleSetDeleteConfirmPage}
                                            listname={currentListName}
                                            listid={currentListId}

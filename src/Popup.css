@@ -1,0 +1,154 @@
+.popup_box {
+    background-color: white;
+    width: 50%;
+    padding-bottom: 20px;
+    color: #082a69;
+    justify-content: left;
+    opacity: 1;
+    border-radius: 3vw;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    box-sizing: border-box;
+
+    position: absolute;
+    left: 25%;
+    top: 25%;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 2px;
+}
+
+.popup_header {
+    color: #082a69;
+    font-size: 30px;
+}
+
+.error_msg {
+    margin-top: -2px;
+    color: red;
+}
+
+.name_field:focus,
+.email_field:focus,
+.pw_field:focus {
+    background-color: rgb(173, 202, 230);
+}
+
+.popup_enter_button {
+    margin-top: 15px;
+    padding: 8px;
+    font-size: 14px;
+    color: rgb(5, 35, 75);
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.popup_enter_button:hover,
+#xbutton:hover {
+    background: rgb(5, 35, 75);
+    color: white;
+}
+
+#xbutton {
+    position:absolute;
+    top: 0;
+    right: 0;
+    color: rgb(5, 35, 75);
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+    outline: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+#popup_instructions {
+    padding-bottom: 10px;
+}
+
+.share_popup_box {
+    top: 20%;
+}
+
+#shareText {
+    margin-top: 10px;
+}
+
+#sharedEmails {
+    height: 60px;
+    overflow-y: auto;
+    height: auto;
+}
+
+.sharedEmail {
+    outline: none;
+    border: none;
+    background: none;
+}
+
+.sharedEmail:enabled {
+    cursor: pointer;
+}
+
+.sharedEmail:enabled:hover,
+.sharedEmail:enabled:focus {
+    color: red;
+    text-decoration-line: line-through;
+}
+
+@media screen and (max-width: 800px) and (max-height: 450px) {
+    #signin_buttons {
+        row-gap: 5px;
+    }
+    #login_logo {
+        margin-top: -10px;
+    }
+    .popup_box {
+        top: 12.5%;
+        left: 17.5%;
+    }
+    #xbutton {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .share_popup_box {
+        left: 0px;
+        width: auto;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+}
+
+@media screen and (max-width: 800px) and (max-height: 550px) {
+    .share_popup_box {
+        left: 0px;
+        top: 60px;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+}
+
+
+@media screen and (max-width: 1000px) and (max-height: 450px) {
+    .share_popup_box {
+        top: 15px;
+    }
+}
+
+
+@media screen and (max-width: 350px) and (max-height: 400px) {
+    .share_popup_box {
+        top: -20px;
+        margin-left: 0;
+        height: 100vh;
+        width: 100vw;
+    }
+}
+
+
+
