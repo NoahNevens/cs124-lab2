@@ -17,7 +17,8 @@ function SignInWithEmailPopUp(props) {
         </div>
         <div className="popup_box">
             <h1 className="popup_header">Sign in</h1>
-            <button id="xbutton" onClick={() => props.onLogInPage(false)}>x</button>
+            <button id="xbutton" aria-label="close login popup"
+                    onClick={() => props.onLogInPage(false)}>x</button>
             {error && <p className="error_msg">Error logging in: {error.message}</p>}
             <label htmlFor='email_field'>Email: </label>
             <input type="email" id='email' className="email_field" value={email}

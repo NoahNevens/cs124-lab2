@@ -20,7 +20,8 @@ function SignUpPopup(props) {
         </div>
         <div className="popup_box">
             <h1 className="popup_header">Sign Up</h1>
-            <button id="xbutton" onClick={() => props.onSignupPage(false)}>x</button>
+            <button id="xbutton" aria-label="close signup popup"
+                    onClick={() => props.onSignupPage(false)}>x</button>
             {error && <p className="error_msg">Error signing up: {error.message}</p>}
             <label htmlFor='disp_name'>Name: </label>
             <input type="text" id='disp_name' className="name_field" value={displayName}

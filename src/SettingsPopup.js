@@ -25,7 +25,8 @@ function SettingsPopup(props) {
         </div>
         <div className="popup_box">
             <h1 className="popup_header">Settings</h1>
-            <button id="xbutton" onClick={() => props.onSettingsPopup(false)}>x</button>
+            <button id="xbutton" aria-label="close settings popup"
+                    onClick={() => props.onSettingsPopup(false)}>x</button>
             <label htmlFor='disp_name'>New name: </label>
             <input type="text" id='disp_name' className="name_field" value={displayName}
                    onChange={e=>setDisplayName(e.target.value)}/>

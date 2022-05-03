@@ -2,13 +2,13 @@ import {useState} from "react";
 
 function SharePopup(props) {
     const [email, setEmail] = useState("");
+    const sharedWith = props.list.sharedWith.filter(e => e !== props.user.email);
+    const isOwner = props.list.owner === props.user.uid;
 
     function share() {
-        props.handleShareList(email);
+        props.handleShareList(email, props.list.id);
         props.onSharePage(false);
     }
-
-    const sharedWith = props.list.sharedWith.filter(e => e !== props.user.email);
 
     return <>
         <div className="overlay">
@@ -18,20 +18,28 @@ function SharePopup(props) {
             <span id="popup_instructions">Enter a friend's email below to give read and write access.
                 Email must belong to a valid user. <br />
             </span>
-            <button id="xbutton" onClick={() => props.onSharePage(false)}>x</button>
+            <button id="xbutton" aria-label="close share popup"
+                    onClick={() => props.onSharePage(false)}>x</button>
             <label htmlFor='email'>Email: </label>
             <input type="text" id='email' className="email_field" value={email}
-                   onChange={e=>setEmail(e.target.value)}/>
-            <div id="shareText">Currently shared with:</div>
+                   aria-label="enter email to share with"
+                   onChange={e=>setEmail(e.target.value)}
+                    // ignore tab and shift tab keys
+            />
+            {(sharedWith.length === 0) ? <div id="shareText">Not currently shared with anyone</div>
+                : <div id="shareText">Currently shared with:</div>}
             <div id="sharedEmails">
-            {sharedWith.map(sharedEmail =>
-                    <button className="sharedEmail"
-                            onClick={e => props.handleUnshareList(sharedEmail)}
-                            disabled={props.list.owner !== props.user.uid}
-                    >
-                        {sharedEmail}
-                    </button>)
-            }
+                {sharedWith.map(sharedEmail =>
+                        <button className="sharedEmail"
+                                onClick={e => props.handleUnshareList(sharedEmail, props.list.id)}
+                                disabled={!isOwner}
+                                aria-label={"unshare with " + sharedEmail} >
+                            {sharedEmail}
+                        </button>)
+                }
+                {!isOwner && <button className="sharedEmail"
+                        onClick={e => props.handleUnshareList(props.user.email, props.list.id)}
+                        aria-label={"unshare with yourself"} > me </button>}
             </div>
             <button className="popup_enter_button" onClick={() => share()}>
                 Share

@@ -9,6 +9,7 @@ function SignInWithGoogle(props) {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(props.auth);
 
     return <button onClick={() => signInWithGoogle()}
+                   aria-label="sign in with Google"
                    className="signin_button">
                 Sign In With <i className="fa fa-google" aria-hidden="true" />
     </button>;

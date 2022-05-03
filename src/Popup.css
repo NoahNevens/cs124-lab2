@@ -47,7 +47,10 @@
 }
 
 .popup_enter_button:hover,
-#xbutton:hover {
+.popup_enter_button:focus,
+#xbutton:hover,
+#xbutton:focus
+{
     background: rgb(5, 35, 75);
     color: white;
 }
@@ -64,6 +67,8 @@
     font-size: 30px;
     cursor: pointer;
 }
+
+
 
 #popup_instructions {
     padding-bottom: 10px;
@@ -98,6 +103,7 @@
     color: red;
     text-decoration-line: line-through;
 }
+
 
 @media screen and (max-width: 800px) and (max-height: 450px) {
     #signin_buttons {

@@ -1,5 +1,5 @@
 
-import {collection, deleteDoc, doc, query, serverTimestamp, setDoc, updateDoc, where} from "firebase/firestore";
+import {collection, deleteDoc, doc, getDocs, query, serverTimestamp, setDoc, updateDoc, where} from "firebase/firestore";
 import {useCollectionData} from "react-firebase-hooks/firestore";
 import {useState} from "react";
 import LoadingScreen from "./LoadingScreen";
@@ -46,14 +46,16 @@ function SignedInApp(props) {
                 created: serverTimestamp(),
                 owner: props.user.uid,
                 sharedWith: [props.user.email]  // list is default shared with owner
-            });
-        setCurrentListId(newId);
-        setCurrentListName(listName);
+            }).then(() => {
+            setCurrentListId(newId);
+            setCurrentListName(listName);
+        });
     }
 
-    function handleDeleteList(listId) {
-        //ran out of time to do delete tasks
-        //use forEach on the current list to delete all tasks in list
+    function handleDeleteList(listId, tasks) {
+        for (const task of tasks) {
+            deleteDoc(doc(props.db, collectionName, listId, "tasks", task.id));
+        }
         deleteDoc(doc(props.db, collectionName, listId));
         setCurrentListId("noList");
         setCurrentListName("task-list");
@@ -61,19 +63,26 @@ function SignedInApp(props) {
 
     function handleSetList(listId) {
         setCurrentListId(listId);
+        if (listId === "noList") {
+            setCurrentListName("task-list");
+        } else {
+            const listName = lists.filter(l => l.id === listId)[0].name;
+            setCurrentListName(listName);
+        }
     }
 
-    function handleShareList(friendEmail) {
-        updateDoc(doc(props.db, collectionName, currentListId),
-            {sharedWith: currentList.sharedWith.concat([friendEmail])})
-        console.log('shared')
-        // ARRAY UNION INSTEAD OF CONCAT
+    function handleShareList(friendEmail, listId) {
+        const list = lists.filter(l => l.id === listId)[0];
+        const newSharedWith = Array.from(new Set([...list.sharedWith, ...[friendEmail]]));
+        updateDoc(doc(props.db, collectionName, listId),
+            {sharedWith: newSharedWith})
     }
 
-    function handleUnshareList(friendEmail) {
-        updateDoc(doc(props.db, collectionName, currentListId),
-            {sharedWith: currentList.sharedWith.filter(email => email !== friendEmail) })
-        console.log('unshared eeee')
+    function handleUnshareList(friendEmail, listId) {
+        const list = lists.filter(l => l.id === listId)[0];
+        updateDoc(doc(props.db, collectionName, listId),
+            {sharedWith: list.sharedWith.filter(email => email !== friendEmail) })
+        console.log('unshared')
     }
 
     function handleSetSharePage(bool) {
@@ -93,7 +102,8 @@ function SignedInApp(props) {
             <UserBar user={props.user} isNarrow={props.isNarrow}
                      auth={props.auth}
                      setSettingsPopup={handleSetSettingsPopup}
-                     onSignOut={() => signOut(props.auth)} />
+                     onSignOut={() => signOut(props.auth)}
+            />
             <Header emailVerified={props.user.emailVerified} />
             <div id="list_top_buttons">
                 <ListSelector lists={lists}
@@ -111,7 +121,7 @@ function SignedInApp(props) {
                 <button className="top_button"
                         title="delete list"
                         aria-label="delete current list"
-                        disabled={currentListId==="noList"}
+                        disabled={ (currentListId==="noList") || (currentList && (currentList.owner !== props.user.uid)) } // THIS BREAKS
                         onClick={(e) => {handleSetDeleteConfirmPage(true)}} >
                     <i className="fa-solid fa-trash-can" />
                 </button>
@@ -129,6 +139,8 @@ function SignedInApp(props) {
                                   user={props.user} list={currentList}/>}
         {deleteConfirmPage && <DeletePopup onDeleteConfirm={handleSetDeleteConfirmPage}
                                            listname={currentListName}
+                                           mainCollection={collectionName}
+                                           db={props.db}
                                            listid={currentListId}
                                            handleDeleteList={handleDeleteList}/>}
         {settingsPopup && <SettingsPopup auth={props.auth} onSettingsPopup={handleSetSettingsPopup} />}
