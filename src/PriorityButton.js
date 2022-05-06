@@ -6,10 +6,10 @@ function PriorityButton(props) {
     return <>
         <select id={"prioritySelector"}
                 className={cName}
-                onChange={props.onChange} value={props.priority} >
-            <option value={"a"} aria-label={"high priority"}>{props.isNarrow ? "H" : "high"}</option>
-            <option value={"b"} aria-label={"medium priority"}>{props.isNarrow ? "M" : "med"}</option>
-            <option value={"c"} aria-label={"low priority"}>{props.isNarrow ? "L" : "low"}</option>
+                onChange={props.onChange} value={props.priority} tabIndex={props.popup ? -1 : 0}>
+            <option value={"a"} aria-label={"high priority"} tabIndex={props.popup ? -1 : 0}>{props.isNarrow ? "H" : "high"}</option>
+            <option value={"b"} aria-label={"medium priority"} tabIndex={props.popup ? -1 : 0}>{props.isNarrow ? "M" : "med"}</option>
+            <option value={"c"} aria-label={"low priority"} tabIndex={props.popup ? -1 : 0}>{props.isNarrow ? "L" : "low"}</option>
         </select>
     </>
 

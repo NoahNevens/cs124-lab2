@@ -90,11 +90,14 @@ function TaskList(props) {
     return <div>
         <div id="sort_top_buttons">
             <SortButton onChange={(e) => handleSortBy(e.target.value)}
-                        sortBy={sortBy} />
+                        sortBy={sortBy}
+                        popup={props.popup}/>
             <AscendButton ascending={ascending}
-                          onClick={handleAscending}/>
+                          onClick={handleAscending}
+                          popup={props.popup}/>
             <UndoButtonTask justDeleted={justDeletedTasks}
-                            onClick={handleUndoDeleteTasks} />
+                            onClick={handleUndoDeleteTasks}
+                            popup={props.popup}/>
         </div>
         <div className="task_list">
             <div className="tasks">
@@ -103,15 +106,17 @@ function TaskList(props) {
                                                  onTaskChangeField={handleChangeField}
                                                  onItemDeleted={handleItemDeleted}
                                                  isNarrow={props.isNarrow}
+                                                 popup={props.popup}
                     />)
                 }
                 <text/>
             </div>
-            <AddTaskButton onAddTask={handleAddTask}/>
+            <AddTaskButton onAddTask={handleAddTask} popup={props.popup}/>
             {completedTasks.length >= 1 && <BottomButtons onToggleCompletedItems={() => handleToggleCompletedItems()}
                                                           onClearCompletedItems={() => handleClearCompleted()}
                                                           isHideCompleted={hideCompleted}
-                                                          emailVerified={props.emailVerified} />}
+                                                          emailVerified={props.emailVerified}
+                                                          popup={props.popup}/>}
 
         </div>
     </div>;

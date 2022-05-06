@@ -19,7 +19,8 @@ function AddListButton(props) {
         <button onClick={e => {handleSetListBox(true)}}
                 aria-label="add new list"
                 title="add list"
-                className="top_button" ><i className="fa-solid fa-plus"/></button>
+                className="top_button"
+                tabIndex={props.popup ? -1 : 0}><i className="fa-solid fa-plus"/></button>
         {newListBox && <input id="name_list_field"
                               placeholder="Dan's list"
                               aria-label="new list name: "

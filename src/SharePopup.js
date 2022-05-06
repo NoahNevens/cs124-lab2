@@ -10,6 +10,8 @@ function SharePopup(props) {
         props.onSharePage(false);
     }
 
+    console.log(sharedWith);
+
     return <>
         <div className="overlay">
         </div>

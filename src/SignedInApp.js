@@ -27,6 +27,7 @@ function SignedInApp(props) {
     const [sharePage, setSharePage] = useState(false);
     const [settingsPopup, setSettingsPopup] = useState(false);
     const [deleteConfirmPage, setDeleteConfirmPage] = useState(false);
+    const [isPopup, setIsPopup] = useState(false);
 
     if (listLoading) {
         return <LoadingScreen message="Loading..."/>;
@@ -83,18 +84,26 @@ function SignedInApp(props) {
         updateDoc(doc(props.db, collectionName, listId),
             {sharedWith: list.sharedWith.filter(email => email !== friendEmail) })
         console.log('unshared')
+        if (props.user.email === friendEmail) {
+            setCurrentListId("noList");
+            setCurrentListName("task-list");
+            handleSetSharePage(false);
+        }
     }
 
     function handleSetSharePage(bool) {
         setSharePage(bool);
+        setIsPopup(bool);
     }
 
     function handleSetDeleteConfirmPage(bool) {
         setDeleteConfirmPage(bool);
+        setIsPopup(bool);
     }
 
     function handleSetSettingsPopup(bool) {
         setSettingsPopup(bool);
+        setIsPopup(bool);
     }
 
     return <div className="SignedInApp">
@@ -103,6 +112,7 @@ function SignedInApp(props) {
                      auth={props.auth}
                      setSettingsPopup={handleSetSettingsPopup}
                      onSignOut={() => signOut(props.auth)}
+                     popup={isPopup}
             />
             <Header emailVerified={props.user.emailVerified} />
             <div id="list_top_buttons">
@@ -110,19 +120,23 @@ function SignedInApp(props) {
                               currentListId={currentListId}
                               currentListName={currentListName}
                               onChange={(e) => {handleSetList(e.target.value)}}
-                              onAddList={handleAddList} />
+                              onAddList={handleAddList}
+                              popup={isPopup}
+                />
                 <button className="top_button"
                         title="share list"
                         aria-label="share list"
                         disabled={currentListId==="noList"}
-                        onClick={() => handleSetSharePage(true)}>
+                        onClick={() => handleSetSharePage(true)}
+                        tabIndex={isPopup ? -1 : 0}>
                     <i className="fa-solid fa-user-group" />
                 </button>
                 <button className="top_button"
                         title="delete list"
                         aria-label="delete current list"
                         disabled={ (currentListId==="noList") || (currentList && (currentList.owner !== props.user.uid)) } // THIS BREAKS
-                        onClick={(e) => {handleSetDeleteConfirmPage(true)}} >
+                        onClick={(e) => {handleSetDeleteConfirmPage(true)}}
+                        tabIndex={isPopup ? -1 : 0}>
                     <i className="fa-solid fa-trash-can" />
                 </button>
             </div>
@@ -132,7 +146,8 @@ function SignedInApp(props) {
                                                      subName={currentListName}
                                                      lists={lists}
                                                      isNarrow={props.isNarrow}
-                                                     emailVerified={props.user.emailVerified} />}
+                                                     emailVerified={props.user.emailVerified}
+                                                     popup={isPopup}/>}
         </div>
         {sharePage && <SharePopup onSharePage={handleSetSharePage} handleShareList={handleShareList}
                                   handleUnshareList={handleUnshareList}

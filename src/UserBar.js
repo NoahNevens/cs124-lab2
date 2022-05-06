@@ -17,10 +17,12 @@ function UserBar(props) {
         Hello, {displayName}.
         <button onClick={() => props.setSettingsPopup(true)}
                 aria-label="open settings"
-                id="settings_button"><i className="fa-solid fa-gear"/></button>
+                id="settings_button"
+                tabIndex={props.popup ? -1 : 0}><i className="fa-solid fa-gear"/></button>
         <button onClick={props.onSignOut}
                 aria-label="sign out"
-                id="sign_out_button">Sign out.</button>
+                id="sign_out_button"
+                tabIndex={props.popup ? -1 : 0}>Sign out.</button>
     </div>;
 }
 

@@ -10,13 +10,13 @@ function ListSelector(props) {
             Select List:
         </label><br/>
         <select onChange={props.onChange} id={"listSelector"}
-                className="dropDown" value={props.currentListId} >
-            <option id={"no_list"} value={"noList"}>select list</option>
+                className="dropDown" value={props.currentListId} tabIndex={props.popup ? -1 : 0} >
+            <option id={"no_list"} value={"noList"} tabIndex={props.popup ? -1 : 0}>select list</option>
             {
-                props.lists.map(list => <option value={list.id} key={list.id}> {list.name} </option>)
+                props.lists.map(list => <option value={list.id} key={list.id} tabIndex={props.popup ? -1 : 0}> {list.name} </option>)
             }
         </select>
-        <AddListButton onAddList={props.onAddList}  />
+        <AddListButton onAddList={props.onAddList} popup={props.popup} />
     </>
 }
 

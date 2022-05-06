@@ -12,6 +12,7 @@ function Task(props) {
             isAdd={false}
             completed={props.completed}
             onTaskChangeField={props.onTaskChangeField}
+            popup={props.popup}
         />
         <SelectionMaintainingInput
             className={"task_text" + (props.isNarrow ? " tsquished" : "") }
@@ -23,15 +24,18 @@ function Task(props) {
             value={props.value}
             placeholder={"Add new task"}
             aria-label={props.value}
+            popup={props.popup}
         />
         <DueDate
             dueDate={props.dueDate}
             onChange={(e) => props.onTaskChangeField(props.id, "dueDate", e.target.value)}
             isNarrow={props.isNarrow}
+            popup={props.popup}
         />
         <PriorityButton priority={props.priority}
                         isNarrow={props.isNarrow}
                         onChange={(e) => props.onTaskChangeField(props.id, "priority", e.target.value)}
+                        popup={props.popup}
         />
     </div>;
 }

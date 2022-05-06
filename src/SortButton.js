@@ -6,11 +6,11 @@ function SortButton(props) {
             Sort by:
         </label><br/>
         <select onChange={props.onChange} id="sortDropDown"
-                className="dropDown" value={props.sortBy} >
-            <option value={"priority"} aria-label="sort by priority">priority</option>
-            <option value={"created"} aria-label="sort by date added">date added</option>
-            <option value={"value"} aria-label="sort alphabetically">alphabetical</option>
-            <option value={"dueDate"} aria-label="sort by date due">date due</option>
+                className="dropDown" value={props.sortBy} tabIndex={props.popup ? -1 : 0} >
+            <option value={"priority"} aria-label="sort by priority" tabIndex={props.popup ? -1 : 0}>priority</option>
+            <option value={"created"} aria-label="sort by date added" tabIndex={props.popup ? -1 : 0}>date added</option>
+            <option value={"value"} aria-label="sort alphabetically" tabIndex={props.popup ? -1 : 0}>alphabetical</option>
+            <option value={"dueDate"} aria-label="sort by date due" tabIndex={props.popup ? -1 : 0}>date due</option>
         </select>
     </>
 }
