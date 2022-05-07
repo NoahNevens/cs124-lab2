@@ -7,15 +7,17 @@ function SharePopup(props) {
 
     function share() {
         props.handleShareList(email, props.list.id);
-        props.onSharePage(false);
+        setEmail("");
     }
 
     console.log(sharedWith);
 
     return <>
-        <div className="overlay">
+        <div className="overlay" tabIndex={0}
+             onKeyDown={(e) => props.handleEscPopup(e, props.onSharePage)}>
         </div>
-        <div className="popup_box share_popup_box">
+        <div className="popup_box share_popup_box" tabIndex={0}
+             onKeyDown={(e) => props.handleEscPopup(e, props.onSharePage)}>
             <h1 className="popup_header">Share</h1>
             <span id="popup_instructions">Enter a friend's email below to give read and write access.
                 Email must belong to a valid user. <br />
@@ -27,6 +29,7 @@ function SharePopup(props) {
                    aria-label="enter email to share with"
                    onChange={e=>setEmail(e.target.value)}
                     // ignore tab and shift tab keys
+                   onKeyDown={e => {props.handleEnterPopup(e, share)}}
             />
             {(sharedWith.length === 0) ? <div id="shareText">Not currently shared with anyone</div>
                 : <div id="shareText">Currently shared with:</div>}

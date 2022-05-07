@@ -27,7 +27,7 @@ function SignedInApp(props) {
     const [sharePage, setSharePage] = useState(false);
     const [settingsPopup, setSettingsPopup] = useState(false);
     const [deleteConfirmPage, setDeleteConfirmPage] = useState(false);
-    const [isPopup, setIsPopup] = useState(false);
+    const isPopup = sharePage || settingsPopup || deleteConfirmPage;
 
     if (listLoading) {
         return <LoadingScreen message="Loading..."/>;
@@ -93,17 +93,26 @@ function SignedInApp(props) {
 
     function handleSetSharePage(bool) {
         setSharePage(bool);
-        setIsPopup(bool);
     }
 
     function handleSetDeleteConfirmPage(bool) {
         setDeleteConfirmPage(bool);
-        setIsPopup(bool);
     }
 
     function handleSetSettingsPopup(bool) {
         setSettingsPopup(bool);
-        setIsPopup(bool);
+    }
+
+    function handleEnterPopup(e, func) {
+        if (e.key === 'Enter') {
+            func();
+        }
+    }
+
+    function handleEscPopup(e, func) {
+        if (e.key === 'Escape') {
+            func(false);
+        }
     }
 
     return <div className="SignedInApp">
@@ -111,8 +120,10 @@ function SignedInApp(props) {
             <UserBar user={props.user} isNarrow={props.isNarrow}
                      auth={props.auth}
                      setSettingsPopup={handleSetSettingsPopup}
+                     handleEnterPopup={handleEnterPopup}
                      onSignOut={() => signOut(props.auth)}
                      popup={isPopup}
+                     handleEscPopup={handleEscPopup}
             />
             <Header emailVerified={props.user.emailVerified} />
             <div id="list_top_buttons">
@@ -151,14 +162,21 @@ function SignedInApp(props) {
         </div>
         {sharePage && <SharePopup onSharePage={handleSetSharePage} handleShareList={handleShareList}
                                   handleUnshareList={handleUnshareList}
-                                  user={props.user} list={currentList}/>}
+                                  user={props.user} list={currentList}
+                                  handleEnterPopup={handleEnterPopup}
+                                  handleEscPopup={handleEscPopup}
+                                  />}
         {deleteConfirmPage && <DeletePopup onDeleteConfirm={handleSetDeleteConfirmPage}
                                            listname={currentListName}
                                            mainCollection={collectionName}
                                            db={props.db}
                                            listid={currentListId}
-                                           handleDeleteList={handleDeleteList}/>}
-        {settingsPopup && <SettingsPopup auth={props.auth} onSettingsPopup={handleSetSettingsPopup} />}
+                                           handleDeleteList={handleDeleteList}
+                                           handleEnterPopup={handleEnterPopup}
+                                           handleEscPopup={handleEscPopup}/>}
+        {settingsPopup && <SettingsPopup auth={props.auth} onSettingsPopup={handleSetSettingsPopup}
+                                         handleEnterPopup={handleEnterPopup}
+                                         handleEscPopup={handleEscPopup}/>}
     </div>;
 }
 

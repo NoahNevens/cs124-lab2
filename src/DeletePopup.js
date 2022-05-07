@@ -12,9 +12,11 @@ function DeletePopup(props) {
     }
 
     return <>
-        <div className="overlay">
+        <div className="overlay" tabIndex={0}
+             onKeyDown={(e) => props.handleEscPopup(e, props.onDeleteConfirm)}>
         </div>
-        <div className="popup_box">
+        <div className="popup_box" tabIndex={0}
+             onKeyDown={(e) => props.handleEscPopup(e, props.onDeleteConfirm)}>
             <h1 className="popup_header">Delete list?</h1>
             <span id="popup_instructions">
                 Are you sure you would like to delete "{props.listname}"?
@@ -22,7 +24,8 @@ function DeletePopup(props) {
             <button id="xbutton" aria-label="don't delete and close popup"
                     onClick={() => props.onDeleteConfirm(false)}>x</button>
             <button className="popup_enter_button"
-                    onClick={() => deleteList()}>
+                    onClick={() => deleteList()}
+                    onKeyDown={e => props.handleEnterPopup(e, deleteList)} >
                 Yes, delete.
             </button>
         </div>

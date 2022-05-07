@@ -95,6 +95,18 @@ A final major change was the new loading screen. Before, "Loading..." just flash
 <img src="/design/loading screen.png" alt="The loading screen features a navy arc rotating around a white circle, with a light blue background" style="height: 500px"/>
 
 <hr>
+<h3>Lab 5 Design</h3>
+
+The first issue we wanted to tackle was that of sharing lists. We decided that for any list, we should have a button at the top that you can press to share. The icon that
+we used was a couple of human-shaped silhouettes. We thought this icon represented the "sharing" pretty well, and it seems that our users have felt the same. A friend of ours
+mentioned that it might be neat if the share popup showed the emails of the people that the list was already shared with, so we did that. Then, we thought that we could unshare with people by
+clicking on their email in the popup. We had those emails turn red with a strikethrough line when the user hovers to make it clear that a click would result in unsharing with the email that was hovered.
+Another friend of ours said that this feature was really intuitive and that it clearly indicated that a user would be unshared with. 
+
+
+| <img src="/design/ShareIcon.png" alt="The share icon" style="height: 150px" /> | <img src="/design/sharedWithUsers.png" alt="You can see the users that the list is already shared with" style="height: 150px" /> | <img src="/design/unshareWithUser.png" alt="When you hover a user you can see the option to unshare" style="height: 150px" /> |
+|--------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
+| <p> The new checkbox design </p>                                               | <p> The new focus indicator </p>                                                                                                 | <p> The old checkbox design</p>                                                                                               |
 
 <h3> Navigation videos! </h3>
 

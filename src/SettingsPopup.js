@@ -21,9 +21,11 @@ function SettingsPopup(props) {
     }
 
     return <>
-        <div className="overlay">
+        <div className="overlay" tabIndex={0}
+             onKeyDown={(e) => props.handleEscPopup(e, props.onSettingsPopup)}>
         </div>
-        <div className="popup_box">
+        <div className="popup_box" tabIndex={0}
+             onKeyDown={(e) => props.handleEscPopup(e, props.onSettingsPopup)}>
             <h1 className="popup_header">Settings</h1>
             <button id="xbutton" aria-label="close settings popup"
                     onClick={() => props.onSettingsPopup(false)}>x</button>
@@ -37,7 +39,8 @@ function SettingsPopup(props) {
             <input type="password" id='pw' className="pw_field" value={password}
                    onChange={e=>setPassword(e.target.value)}/>
             <button className="popup_enter_button"
-                    onClick={() => update(props.auth.currentUser)}>
+                    onClick={() => update(props.auth.currentUser)}
+                    onKeyDown={e => props.handleEnterPopup(e, update(props.auth.currentUser))} >
                 Apply Changes
             </button>
         </div>

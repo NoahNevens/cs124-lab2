@@ -19,12 +19,14 @@ function App(props) {
 
     const verificationMsg = isRlyNarrow? <button type="button" id="verification_button"
                                                  aria-label="send verification email"
-                                              onClick={verifyEmail}>Verify email.</button> :
-        <> Your email is not yet verified! <button type="button" id="verification_button"
-                                                   aria-label="send verification email"
-                                                   onClick={verifyEmail}>
-            Send verification.</button>
-        </>
+                                                 onClick={verifyEmail}>
+                                    Verify email.</button> :
+                                <> Your email is not yet verified!
+                                    <button type="button" id="verification_button"
+                                            aria-label="send verification email"
+                                            onClick={verifyEmail}>
+                                    Send verification.</button>
+                                </>
 
     if (loading) {
         return <LoadingScreen message="Loading..." />;
