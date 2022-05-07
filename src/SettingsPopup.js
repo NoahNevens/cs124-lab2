@@ -37,7 +37,8 @@ function SettingsPopup(props) {
                    onChange={e=>setEmail(e.target.value)}/>
             <label htmlFor='pw'>New password: </label>
             <input type="password" id='pw' className="pw_field" value={password}
-                   onChange={e=>setPassword(e.target.value)}/>
+                   onChange={e=>setPassword(e.target.value)}
+                   />
             <button className="popup_enter_button"
                     onClick={() => update(props.auth.currentUser)}
                     onKeyDown={e => props.handleEnterPopup(e, update(props.auth.currentUser))} >

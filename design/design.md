@@ -106,7 +106,9 @@ Another friend of ours said that this feature was really intuitive and that it c
 
 | <img src="/design/ShareIcon.png" alt="The share icon" style="height: 150px" /> | <img src="/design/sharedWithUsers.png" alt="You can see the users that the list is already shared with" style="height: 150px" /> | <img src="/design/unshareWithUser.png" alt="When you hover a user you can see the option to unshare" style="height: 150px" /> |
 |--------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
-| <p> The new checkbox design </p>                                               | <p> The new focus indicator </p>                                                                                                 | <p> The old checkbox design</p>                                                                                               |
+| <p> The Share Icon </p>                                                        | <p> The users that the list is already shared with </p>                                                                          | <p> When you hover over a user you can click to unshare with them </p>                                                        |
+
+We talked with some users about what sharing permissions made sense. We decided that if the doc is shared with you but you are not the owner then you cannot delete tasks. You shouldn't be able to delete what could potentially be the owner's data. 
 
 <h3> Navigation videos! </h3>
 
