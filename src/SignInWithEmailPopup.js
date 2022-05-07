@@ -3,7 +3,7 @@ import {useState} from "react";
 import LoadingScreen from "./LoadingScreen";
 
 function SignInWithEmailPopUp(props) {
-    const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(props.auth);
+    const [signInWithEmailAndPassword, _, loading, error] = useSignInWithEmailAndPassword(props.auth);
 
     const [email, setEmail] = useState("");
     const [pw, setPw] = useState("");

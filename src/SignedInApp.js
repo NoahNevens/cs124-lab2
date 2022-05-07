@@ -1,5 +1,5 @@
 
-import {collection, deleteDoc, doc, getDocs, query, serverTimestamp, setDoc, updateDoc, where} from "firebase/firestore";
+import {collection, deleteDoc, doc, query, serverTimestamp, setDoc, updateDoc, where} from "firebase/firestore";
 import {useCollectionData} from "react-firebase-hooks/firestore";
 import {useState} from "react";
 import LoadingScreen from "./LoadingScreen";

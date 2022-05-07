@@ -30,6 +30,9 @@ function App(props) {
 
     if (loading) {
         return <LoadingScreen message="Loading..." />;
+    } else if (error) {
+        console.log(error)
+        return <div>Error!</div>
     } else if (user) {
         return <>
             {!user.emailVerified && <div id="verification_msg">

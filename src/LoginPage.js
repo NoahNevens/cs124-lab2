@@ -4,15 +4,23 @@ import {useState} from "react";
 import {useSignInWithGoogle} from "react-firebase-hooks/auth";
 import SignUpPopup from "./SignUpPopup.js"
 import SignInWithEmailPopUp from "./SignInWithEmailPopup";
+import LoadingScreen from "./LoadingScreen";
 
 function SignInWithGoogle(props) {
-    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(props.auth);
+    const [signInWithGoogle, _, loading, error] = useSignInWithGoogle(props.auth);
 
-    return <button onClick={() => signInWithGoogle()}
-                   aria-label="sign in with Google"
-                   className="signin_button">
-                Sign In With <i className="fa fa-google" aria-hidden="true" />
-    </button>;
+    if (loading) {
+        return <LoadingScreen message="Loading..." />;
+    } else if (error) {
+        console.log(error)
+        return <div>Error!</div>
+    } else {
+        return <button onClick={() => signInWithGoogle()}
+                       aria-label="sign in with Google"
+                       className="signin_button">
+                    Sign In With <i className="fa fa-google" aria-hidden="true" />
+        </button>;
+    }
 }
 
 function SignInWithEmailButton(props) {

@@ -1,7 +1,5 @@
 import "./UserBar.css";
 import "./SettingsPopup.js"
-import {useState} from "react";
-import SettingsPopup from "./SettingsPopup";
 
 function getFirstName(name) {
     return name.split(" ")[0];
