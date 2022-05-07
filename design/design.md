@@ -110,6 +110,11 @@ Another friend of ours said that this feature was really intuitive and that it c
 
 We talked with some users about what sharing permissions made sense. We decided that if the doc is shared with you but you are not the owner then you cannot delete tasks. You shouldn't be able to delete what could potentially be the owner's data. 
 
+The users that we've tested with really like having popups, so we use popups for sharing lists, and for settings. In settings you can change your information, including email and password. Additionally, we have a 
+delete confirmation popup that appears when you decide to delete a list. It confirms that you do indeed wish to delete the list. 
+
+<img src="/design/DeleteConfirmation.png" alt="The delete confirmation" style="height: 150px" />
+
 <h3> Navigation videos! </h3>
 
 [Keyboard only navigation](https://youtu.be/-PtDJdx3iHE)
