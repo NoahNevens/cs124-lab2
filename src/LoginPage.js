@@ -7,11 +7,12 @@ import SignInWithEmailPopUp from "./SignInWithEmailPopup";
 import LoadingScreen from "./LoadingScreen";
 
 function SignInWithGoogle(props) {
-    const [signInWithGoogle, _, loading, error] = useSignInWithGoogle(props.auth);
+    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(props.auth);
 
     if (loading) {
         return <LoadingScreen message="Loading..." />;
     } else if (error) {
+        console.log(user)
         console.log(error)
         return <div>Error!</div>
     } else {
