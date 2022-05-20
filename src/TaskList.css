@@ -18,3 +18,9 @@
 #sort_top_buttons {
     margin-bottom: 15px;
 }
+
+@media screen and (max-width: 275px) {
+    .task_list {
+        max-height: 97vh;
+    }
+}

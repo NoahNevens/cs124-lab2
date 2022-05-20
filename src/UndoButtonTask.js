@@ -6,7 +6,8 @@ function UndoButtonTask(props) {
                    onClick={props.onClick}
                    disabled={props.justDeleted.length === 0}
                    title="undo delete tasks"
-                   aria-label={"undo last delete tasks"} > ⤺
+                   aria-label={"undo last delete tasks"}
+                   tabIndex={props.popup ? -1 : 0}> ⤺
     </button>
 }
 

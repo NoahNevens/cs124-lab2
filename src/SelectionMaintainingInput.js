@@ -11,6 +11,6 @@ function SelectionMaintainingInput(props) {
         setCursor(e.target.selectionStart);
         onChange && onChange(e);
     };
-    return <input ref={ref} value={value} onChange={handleChange} {...rest} />;
+    return <input ref={ref} value={value} onChange={handleChange} {...rest} tabIndex={props.popup ? -1 : 0}/>;
 }
 export default SelectionMaintainingInput;

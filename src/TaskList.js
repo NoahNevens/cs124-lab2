@@ -18,13 +18,15 @@ function TaskList(props) {
     const [justDeletedTasks, setJustDeletedTasks] = useState([]);
 
     const order = ascending ? "asc" : "desc";
-    const q = query(collection(props.db, props.mainCollection, props.subId, props.subName), orderBy(sortBy, order));
+    const q = query(collection(props.db, props.mainCollection, props.subId, "tasks"),
+                        orderBy(sortBy, order));
     const [tasks, loading, error] = useCollectionData(q);
 
     if (loading) {
-        return <LoadingScreen />;
+        return <LoadingScreen message="Loading..."/>;
     }
     if (error) {
+        console.log(error);
         return <div>Error! Uh oh</div>;
     }
 
@@ -33,11 +35,11 @@ function TaskList(props) {
     const data = hideCompleted ? uncompletedTasks : tasks;
 
     function handleChangeField(taskId, field, value) {
-        updateDoc(doc(props.db, props.mainCollection, props.subId, props.subName, taskId), {[field]:value});
+        updateDoc(doc(props.db, props.mainCollection, props.subId, "tasks", taskId), {[field]:value});
     }
 
     function handleItemDeleted(taskId) {
-        deleteDoc(doc(props.db, props.mainCollection, props.subId, props.subName, taskId));
+        deleteDoc(doc(props.db, props.mainCollection, props.subId, "tasks", taskId));
     }
 
     function handleClearCompleted() {
@@ -46,6 +48,13 @@ function TaskList(props) {
             handleItemDeleted(task.id);
         }
         setJustDeletedTasks(toDelete);
+    }
+
+    function handleUndoDeleteTasks() {
+        for (const task of justDeletedTasks) {
+            setDoc(doc(props.db, props.mainCollection, props.subId, "tasks", task.id), task)
+        }
+        setJustDeletedTasks([]);
     }
 
     function handleAddTask(taskValue) {
@@ -57,20 +66,13 @@ function TaskList(props) {
         }
 
         const newId = generateUniqueID();
-        setDoc(doc(props.db, props.mainCollection, props.subId, props.subName, newId),
+        setDoc(doc(props.db, props.mainCollection, props.subId, "tasks", newId),
             {id: newId,
                 value: taskValue,
                 completed: false,
                 priority: "a",
                 created: serverTimestamp(),
                 dueDate: new Date()});
-    }
-
-    function handleUndoDeleteTasks() {
-        for (const task of justDeletedTasks) {
-            setDoc(doc(props.db, props.mainCollection, props.subId, props.subName, task.id), {...task})
-        }
-        setJustDeletedTasks([]);
     }
 
     function handleToggleCompletedItems() {
@@ -88,11 +90,14 @@ function TaskList(props) {
     return <div>
         <div id="sort_top_buttons">
             <SortButton onChange={(e) => handleSortBy(e.target.value)}
-                        sortBy={sortBy} />
+                        sortBy={sortBy}
+                        popup={props.popup}/>
             <AscendButton ascending={ascending}
-                          onClick={handleAscending}/>
+                          onClick={handleAscending}
+                          popup={props.popup}/>
             <UndoButtonTask justDeleted={justDeletedTasks}
-                            onClick={handleUndoDeleteTasks} />
+                            onClick={handleUndoDeleteTasks}
+                            popup={props.popup}/>
         </div>
         <div className="task_list">
             <div className="tasks">
@@ -101,14 +106,17 @@ function TaskList(props) {
                                                  onTaskChangeField={handleChangeField}
                                                  onItemDeleted={handleItemDeleted}
                                                  isNarrow={props.isNarrow}
+                                                 popup={props.popup}
                     />)
                 }
                 <text/>
             </div>
-            <AddTaskButton onAddTask={handleAddTask}/>
+            <AddTaskButton onAddTask={handleAddTask} popup={props.popup}/>
             {completedTasks.length >= 1 && <BottomButtons onToggleCompletedItems={() => handleToggleCompletedItems()}
                                                           onClearCompletedItems={() => handleClearCompleted()}
-                                                          isHideCompleted={hideCompleted} />}
+                                                          isHideCompleted={hideCompleted}
+                                                          emailVerified={props.emailVerified}
+                                                          popup={props.popup}/>}
 
         </div>
     </div>;

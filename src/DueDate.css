@@ -16,6 +16,7 @@
 
 ::-webkit-calendar-picker-indicator {
     margin-left: -15px;
+    cursor: pointer;
 }
 
 .squishDate {

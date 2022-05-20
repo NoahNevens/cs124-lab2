@@ -8,7 +8,8 @@ function DueDate(props) {
         <input type="date" className="dueDateInput"
                value={props.dueDate} onChange={props.onChange}
                aria-label="due date selector"
-               title={"due date"}/>
+               title={"due date"}
+               tabIndex={props.popup ? -1 : 0}/>
     </div>;
 }
 

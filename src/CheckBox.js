@@ -7,6 +7,7 @@ function CheckBox(props) {
                   onClick={e => {props.onTaskChangeField(props.id, "completed",
                       !props.completed)}}
                   title={props.completed ? "uncheck" : "check completed"}
+                  tabIndex={props.popup ? -1 : 0}
 
     />
 }

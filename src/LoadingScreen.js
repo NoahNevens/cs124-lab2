@@ -5,7 +5,7 @@ function LoadingScreen(props) {
     return <div className="loading_screen">
         <div className="loader" />
         <br />
-        Loading...
+        {props.message}
     </div>
 
 }

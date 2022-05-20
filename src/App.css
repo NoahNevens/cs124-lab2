@@ -1,17 +1,20 @@
-.App {
-  background: linear-gradient(to bottom right, rgb(58, 112, 194), rgb(76, 123, 194)) no-repeat;
-  background-size: cover;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-
+#verification_msg {
+    padding-left: 30px;
+    color: red;
 }
 
-#content {
-  padding-left: 30px;
-  padding-right: 30px;
+#verification_button {
+    text-decoration: underline;
+    outline: none;
+    font-size: 15px;
+    color: red;
+    cursor: pointer;
+    background: none;
+    border: none;
 }
 
-#list_top_buttons {
-  margin-bottom: 5px;
+#verification_button:hover,
+#verification_button:focus
+{
+    color: black;
 }
